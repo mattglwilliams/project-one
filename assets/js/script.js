@@ -1,5 +1,5 @@
 var fetchGenreData = function () {
-    var currentApiURL = "https://api.themoviedb.org/3/genre/tv/list?api_key=2fad5e038a5d373957de8c81a2825905&language=en-US";
+    var currentApiURL = "https://api.themoviedb.org/3/genre/movie/list?api_key=2fad5e038a5d373957de8c81a2825905&language=en-US";
 
     fetch(currentApiURL)
         .then(function (response) {
@@ -13,7 +13,7 @@ var fetchGenreData = function () {
 fetchGenreData();
 
 var fetchTVData = function () {
-    var currentApiURL = "https://api.themoviedb.org/3/discover/movie?api_key=2fad5e038a5d373957de8c81a2825905&language=en-UK&sort_by=popularity.desc&page=1&include_null_first_air_dates=false&with_watch_monetization_types=flatrate&with_status=0&with_type=0";
+    var currentApiURL = "https://api.themoviedb.org/3/discover/movie?api_key=2fad5e038a5d373957de8c81a2825905&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=" + actionValue + "&with_watch_monetization_types=flatrate";
 
     fetch(currentApiURL)
         .then(function (response) {
@@ -50,10 +50,8 @@ var renderGenreList = function () {
 }
 
 
-var fetchMovieInfo = function () {
+// Need event listeners on the movie and book buttons to trigger the correct functions above.
+// Need to window.replace with these to render the next page
 
-}
-
-var renderMovieInfo = function () {
-
-}
+// Need a second set of event listeners if the user selects movie/tv shows that allows them to 
+// select either movies or tv shows.
