@@ -40,155 +40,264 @@ var westernValue = westernBtn.value
 
 var randomPage = Math.floor(Math.random() * 10)
 
-var fetchActionData = function () {
+var actionMovieIds = [];
+var adventureMovieIds = [];
+var animationMovieIds = [];
+var comedyMovieIds = [];
+var crimeMovieIds = [];
+var documentaryMovieIds = [];
+var dramaMovieIds = [];
+var familyMovieIds = [];
+var fantasyMovieIds = [];
+var historyMovieIds = [];
+var horrorMovieIds = [];
+var musicMovieIds = [];
+var mysteryMovieIds = [];
+var romanceMovieIds = [];
+var scienceFictionMovieIds = [];
+var TVMovieMovieIds = [];
+var thrillerMovieIds = [];
+var warMovieIds = [];
+var westernMovieIds = [];
+var westernMovieIds = [];
+
+var actionShuffledArr = function (actionMovieIds) {
+    actionMovieIds.sort(() => Math.random() - 0.5);
+}
+
+var actionData = function () {
 
     var actionApiURL = "https://api.themoviedb.org/3/discover/movie?api_key=2fad5e038a5d373957de8c81a2825905&language=en-UK&include_adult=false&page=" + randomPage + "&with_original_language=en&with_genres=" + actionValue;
 
     fetch(actionApiURL)
         .then(function (response) {
-            return response.json();
-        })
-        .then(function (data) {
-            console.log(data);
-        })
+            if (response.ok) {
+                response.json().then(function (data) {
+                    console.log(data);
+                    for (var i = 0; i < data.results.length; i++) {
+                        var movieId = data.results[i].id
+                        actionMovieIds.push(movieId)
+                    }
+                    actionShuffledArr(actionMovieIds);
+                })
+            }
+        }) 
+        console.log(actionMovieIds)
 }
 
-actionBtn.addEventListener("click", fetchActionData)
+actionBtn.addEventListener("click", actionData)
 
-var fetchAdventureData = function () {
+var adventureShuffledArr = function (adventureMovieIds) {
+    adventureMovieIds.sort(() => Math.random() - 0.5);
+}
 
-    var adventureApiURL = "https://api.themoviedb.org/3/discover/movie?api_key=2fad5e038a5d373957de8c81a2825905&language=en-UK&include_adult=false&page=" + randomPage + "&with_original_language=en&with_genres=" + adventureValue
+var adventureData = function () {
+
+    var adventureApiURL = "https://api.themoviedb.org/3/discover/movie?api_key=2fad5e038a5d373957de8c81a2825905&language=en-UK&include_adult=false&page=" + randomPage + "&with_original_language=en&with_genres=" + adventureValue;
 
     fetch(adventureApiURL)
         .then(function (response) {
-            return response.json();
-        })
-        .then(function (data) {
-            console.log(data);
-        })
+            if (response.ok) {
+                response.json().then(function (data) {
+                    console.log(data);
+                    for (var i = 0; i < data.results.length; i++) {
+                        var movieId = data.results[i].id
+                        adventureMovieIds.push(movieId)
+                    }
+                    adventureShuffledArr(adventureMovieIds);
+                })
+            }
+        }) 
+        console.log(adventureMovieIds)
 }
 
-adventureBtn.addEventListener("click", fetchAdventureData)
+adventureBtn.addEventListener("click", adventureData)
 
-var fetchAnimationData = function () {
+var animationShuffledArr = function (animationMovieIds) {
+    animationMovieIds.sort(() => Math.random() - 0.5);
+}
+
+var animationData = function () {
 
     var animationApiURL = "https://api.themoviedb.org/3/discover/movie?api_key=2fad5e038a5d373957de8c81a2825905&language=en-UK&include_adult=false&page=" + randomPage + "&with_original_language=en&with_genres=" + animationValue;
 
     fetch(animationApiURL)
         .then(function (response) {
-            return response.json();
-        })
-        .then(function (data) {
-            console.log(data);
-        })
+            if (response.ok) {
+                response.json().then(function (data) {
+                    console.log(data);
+                    for (var i = 0; i < data.results.length; i++) {
+                        var movieId = data.results[i].id
+                        animationMovieIds.push(movieId)
+                    }
+                    animationShuffledArr(animationMovieIds);
+                })
+            }
+        }) 
+        console.log(animationMovieIds)
 }
 
-animationBtn.addEventListener("click", fetchAnimationData)
+animationBtn.addEventListener("click", animationData)
 
-var fetchAnimationData = function () {
-
-    var animationApiURL = "https://api.themoviedb.org/3/discover/movie?api_key=2fad5e038a5d373957de8c81a2825905&language=en-UK&include_adult=false&page=" + randomPage + "&with_original_language=en&with_genres=" + animationValue;
-
-    fetch(animationApiURL)
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (data) {
-            console.log(data);
-        })
+var comedyShuffledArr = function (comedyMovieIds) {
+    comedyMovieIds.sort(() => Math.random() - 0.5);
 }
 
-animationBtn.addEventListener("click", fetchAnimationData)
-
-var fetchComedyData = function () {
+var comedyData = function () {
 
     var comedyApiURL = "https://api.themoviedb.org/3/discover/movie?api_key=2fad5e038a5d373957de8c81a2825905&language=en-UK&include_adult=false&page=" + randomPage + "&with_original_language=en&with_genres=" + comedyValue;
 
     fetch(comedyApiURL)
         .then(function (response) {
-            return response.json();
-        })
-        .then(function (data) {
-            console.log(data);
-        })
+            if (response.ok) {
+                response.json().then(function (data) {
+                    console.log(data);
+                    for (var i = 0; i < data.results.length; i++) {
+                        var movieId = data.results[i].id
+                        comedyMovieIds.push(movieId)
+                    }
+                    comedyShuffledArr(comedyMovieIds);
+                })
+            }
+        }) 
+        console.log(comedyMovieIds)
 }
 
-comedyBtn.addEventListener("click", fetchComedyData)
+comedyBtn.addEventListener("click", comedyData)
 
-var fetchCrimeData = function () {
+var crimeShuffledArr = function (crimeMovieIds) {
+    crimeMovieIds.sort(() => Math.random() - 0.5);
+}
+
+var crimeData = function () {
 
     var crimeApiURL = "https://api.themoviedb.org/3/discover/movie?api_key=2fad5e038a5d373957de8c81a2825905&language=en-UK&include_adult=false&page=" + randomPage + "&with_original_language=en&with_genres=" + crimeValue;
 
     fetch(crimeApiURL)
         .then(function (response) {
-            return response.json();
-        })
-        .then(function (data) {
-            console.log(data);
-        })
+            if (response.ok) {
+                response.json().then(function (data) {
+                    console.log(data);
+                    for (var i = 0; i < data.results.length; i++) {
+                        var movieId = data.results[i].id
+                        crimeMovieIds.push(movieId)
+                    }
+                    crimeShuffledArr(crimeMovieIds);
+                })
+            }
+        }) 
+        console.log(crimeMovieIds)
 }
 
-crimeBtn.addEventListener("click", fetchCrimeData)
+crimeBtn.addEventListener("click", crimeData)
 
-var fetchDocumentaryData = function () {
+var documentaryShuffledArr = function (documentaryMovieIds) {
+    documentaryMovieIds.sort(() => Math.random() - 0.5);
+}
+
+var documentaryData = function () {
 
     var documentaryApiURL = "https://api.themoviedb.org/3/discover/movie?api_key=2fad5e038a5d373957de8c81a2825905&language=en-UK&include_adult=false&page=" + randomPage + "&with_original_language=en&with_genres=" + documentaryValue;
 
     fetch(documentaryApiURL)
         .then(function (response) {
-            return response.json();
-        })
-        .then(function (data) {
-            console.log(data);
-        })
+            if (response.ok) {
+                response.json().then(function (data) {
+                    console.log(data);
+                    for (var i = 0; i < data.results.length; i++) {
+                        var movieId = data.results[i].id
+                        documentaryMovieIds.push(movieId)
+                    }
+                    documentaryShuffledArr(documentaryMovieIds);
+                })
+            }
+        }) 
+        console.log(documentaryMovieIds)
 }
 
-documentaryBtn.addEventListener("click", fetchDocumentaryData)
+documentaryBtn.addEventListener("click", documentaryData)
 
-var fetchDramaData = function () {
+var dramaShuffledArr = function (dramaMovieIds) {
+    dramaMovieIds.sort(() => Math.random() - 0.5);
+}
+
+var dramaData = function () {
 
     var dramaApiURL = "https://api.themoviedb.org/3/discover/movie?api_key=2fad5e038a5d373957de8c81a2825905&language=en-UK&include_adult=false&page=" + randomPage + "&with_original_language=en&with_genres=" + dramaValue;
 
     fetch(dramaApiURL)
         .then(function (response) {
-            return response.json();
-        })
-        .then(function (data) {
-            console.log(data);
-        })
+            if (response.ok) {
+                response.json().then(function (data) {
+                    console.log(data);
+                    for (var i = 0; i < data.results.length; i++) {
+                        var movieId = data.results[i].id
+                        dramaMovieIds.push(movieId)
+                    }
+                    dramaShuffledArr(dramaMovieIds);
+                })
+            }
+        }) 
+        console.log(dramaMovieIds)
 }
 
-dramaBtn.addEventListener("click", fetchDramaData)
+dramaBtn.addEventListener("click", dramaData)
 
-var fetchFamilyData = function () {
+var familyShuffledArr = function (familyMovieIds) {
+    familyMovieIds.sort(() => Math.random() - 0.5);
+}
+
+var familyData = function () {
 
     var familyApiURL = "https://api.themoviedb.org/3/discover/movie?api_key=2fad5e038a5d373957de8c81a2825905&language=en-UK&include_adult=false&page=" + randomPage + "&with_original_language=en&with_genres=" + familyValue;
 
     fetch(familyApiURL)
         .then(function (response) {
-            return response.json();
-        })
-        .then(function (data) {
-            console.log(data);
-        })
+            if (response.ok) {
+                response.json().then(function (data) {
+                    console.log(data);
+                    for (var i = 0; i < data.results.length; i++) {
+                        var movieId = data.results[i].id
+                        familyMovieIds.push(movieId)
+                    }
+                    familyShuffledArr(familyMovieIds);
+                })
+            }
+        }) 
+        console.log(familyMovieIds)
 }
 
-familyBtn.addEventListener("click", fetchFamilyData)
+familyBtn.addEventListener("click", familyData)
 
-var fantasyFamilyData = function () {
+var fantasyShuffledArr = function (fantasyMovieIds) {
+    fantasyMovieIds.sort(() => Math.random() - 0.5);
+}
+
+var fantasyData = function () {
 
     var fantasyApiURL = "https://api.themoviedb.org/3/discover/movie?api_key=2fad5e038a5d373957de8c81a2825905&language=en-UK&include_adult=false&page=" + randomPage + "&with_original_language=en&with_genres=" + fantasyValue;
 
     fetch(fantasyApiURL)
         .then(function (response) {
-            return response.json();
-        })
-        .then(function (data) {
-            console.log(data);
-        })
+            if (response.ok) {
+                response.json().then(function (data) {
+                    console.log(data);
+                    for (var i = 0; i < data.results.length; i++) {
+                        var movieId = data.results[i].id
+                        fantasyMovieIds.push(movieId)
+                    }
+                    fantasyShuffledArr(fantasyMovieIds);
+                })
+            }
+        }) 
+        console.log(fantasyMovieIds)
 }
 
-fantasyBtn.addEventListener("click", fantasyFamilyData)
+fantasyBtn.addEventListener("click", fantasyData)
+
+var historyShuffledArr = function (historyMovieIds) {
+    historyMovieIds.sort(() => Math.random() - 0.5);
+}
 
 var historyData = function () {
 
@@ -196,14 +305,25 @@ var historyData = function () {
 
     fetch(historyApiURL)
         .then(function (response) {
-            return response.json();
-        })
-        .then(function (data) {
-            console.log(data);
-        })
+            if (response.ok) {
+                response.json().then(function (data) {
+                    console.log(data);
+                    for (var i = 0; i < data.results.length; i++) {
+                        var movieId = data.results[i].id
+                        historyMovieIds.push(movieId)
+                    }
+                    historyShuffledArr(historyMovieIds);
+                })
+            }
+        }) 
+        console.log(historyMovieIds)
 }
 
 historyBtn.addEventListener("click", historyData)
+
+var horrorShuffledArr = function (horrorMovieIds) {
+    horrorMovieIds.sort(() => Math.random() - 0.5);
+}
 
 var horrorData = function () {
 
@@ -211,14 +331,25 @@ var horrorData = function () {
 
     fetch(horrorApiURL)
         .then(function (response) {
-            return response.json();
-        })
-        .then(function (data) {
-            console.log(data);
-        })
+            if (response.ok) {
+                response.json().then(function (data) {
+                    console.log(data);
+                    for (var i = 0; i < data.results.length; i++) {
+                        var movieId = data.results[i].id
+                        horrorMovieIds.push(movieId)
+                    }
+                    horrorShuffledArr(horrorMovieIds);
+                })
+            }
+        }) 
+        console.log(horrorMovieIds)
 }
 
 horrorBtn.addEventListener("click", horrorData)
+
+var musicShuffledArr = function (musicMovieIds) {
+    musicMovieIds.sort(() => Math.random() - 0.5);
+}
 
 var musicData = function () {
 
@@ -226,14 +357,25 @@ var musicData = function () {
 
     fetch(musicApiURL)
         .then(function (response) {
-            return response.json();
-        })
-        .then(function (data) {
-            console.log(data);
-        })
+            if (response.ok) {
+                response.json().then(function (data) {
+                    console.log(data);
+                    for (var i = 0; i < data.results.length; i++) {
+                        var movieId = data.results[i].id
+                        musicMovieIds.push(movieId)
+                    }
+                    musicShuffledArr(musicMovieIds);
+                })
+            }
+        }) 
+        console.log(musicMovieIds)
 }
 
 musicBtn.addEventListener("click", musicData)
+
+var mysteryShuffledArr = function (mysteryMovieIds) {
+    mysteryMovieIds.sort(() => Math.random() - 0.5);
+}
 
 var mysteryData = function () {
 
@@ -241,14 +383,25 @@ var mysteryData = function () {
 
     fetch(mysteryApiURL)
         .then(function (response) {
-            return response.json();
-        })
-        .then(function (data) {
-            console.log(data);
-        })
+            if (response.ok) {
+                response.json().then(function (data) {
+                    console.log(data);
+                    for (var i = 0; i < data.results.length; i++) {
+                        var movieId = data.results[i].id
+                        mysteryMovieIds.push(movieId)
+                    }
+                    mysteryShuffledArr(mysteryMovieIds);
+                })
+            }
+        }) 
+        console.log(mysteryMovieIds)
 }
 
 mysteryBtn.addEventListener("click", mysteryData)
+
+var romanceShuffledArr = function (romanceMovieIds) {
+    romanceMovieIds.sort(() => Math.random() - 0.5);
+}
 
 var romanceData = function () {
 
@@ -256,14 +409,25 @@ var romanceData = function () {
 
     fetch(romanceApiURL)
         .then(function (response) {
-            return response.json();
-        })
-        .then(function (data) {
-            console.log(data);
-        })
+            if (response.ok) {
+                response.json().then(function (data) {
+                    console.log(data);
+                    for (var i = 0; i < data.results.length; i++) {
+                        var movieId = data.results[i].id
+                        romanceMovieIds.push(movieId)
+                    }
+                    romanceShuffledArr(romanceMovieIds);
+                })
+            }
+        }) 
+        console.log(romanceMovieIds)
 }
 
 romanceBtn.addEventListener("click", romanceData)
+
+var scienceFictionShuffledArr = function (scienceFictionMovieIds) {
+    scienceFictionMovieIds.sort(() => Math.random() - 0.5);
+}
 
 var scienceFictionData = function () {
 
@@ -271,14 +435,25 @@ var scienceFictionData = function () {
 
     fetch(scienceFictionApiURL)
         .then(function (response) {
-            return response.json();
-        })
-        .then(function (data) {
-            console.log(data);
-        })
+            if (response.ok) {
+                response.json().then(function (data) {
+                    console.log(data);
+                    for (var i = 0; i < data.results.length; i++) {
+                        var movieId = data.results[i].id
+                        scienceFictionMovieIds.push(movieId)
+                    }
+                    scienceFictionShuffledArr(scienceFictionMovieIds);
+                })
+            }
+        }) 
+        console.log(scienceFictionMovieIds)
 }
 
 scienceFictionBtn.addEventListener("click", scienceFictionData)
+
+var TVMovieShuffledArr = function (TVMovieMovieIds) {
+    TVMovieMovieIds.sort(() => Math.random() - 0.5);
+}
 
 var TVMovieData = function () {
 
@@ -286,14 +461,25 @@ var TVMovieData = function () {
 
     fetch(TVMovieApiURL)
         .then(function (response) {
-            return response.json();
-        })
-        .then(function (data) {
-            console.log(data);
-        })
+            if (response.ok) {
+                response.json().then(function (data) {
+                    console.log(data);
+                    for (var i = 0; i < data.results.length; i++) {
+                        var movieId = data.results[i].id
+                        TVMovieMovieIds.push(movieId)
+                    }
+                    TVMovieShuffledArr(TVMovieMovieIds);
+                })
+            }
+        }) 
+        console.log(TVMovieMovieIds)
 }
 
 TVMovieBtn.addEventListener("click", TVMovieData)
+
+var thrillerShuffledArr = function (thrillerMovieIds) {
+    thrillerMovieIds.sort(() => Math.random() - 0.5);
+}
 
 var thrillerData = function () {
 
@@ -301,14 +487,25 @@ var thrillerData = function () {
 
     fetch(thrillerApiURL)
         .then(function (response) {
-            return response.json();
-        })
-        .then(function (data) {
-            console.log(data);
-        })
+            if (response.ok) {
+                response.json().then(function (data) {
+                    console.log(data);
+                    for (var i = 0; i < data.results.length; i++) {
+                        var movieId = data.results[i].id
+                        thrillerMovieIds.push(movieId)
+                    }
+                    thrillerShuffledArr(thrillerMovieIds);
+                })
+            }
+        }) 
+        console.log(thrillerMovieIds)
 }
 
 thrillerBtn.addEventListener("click", thrillerData)
+
+var warShuffledArr = function (warMovieIds) {
+    warMovieIds.sort(() => Math.random() - 0.5);
+}
 
 var warData = function () {
 
@@ -316,14 +513,25 @@ var warData = function () {
 
     fetch(warApiURL)
         .then(function (response) {
-            return response.json();
-        })
-        .then(function (data) {
-            console.log(data);
-        })
+            if (response.ok) {
+                response.json().then(function (data) {
+                    console.log(data);
+                    for (var i = 0; i < data.results.length; i++) {
+                        var movieId = data.results[i].id
+                        warMovieIds.push(movieId)
+                    }
+                    warShuffledArr(warMovieIds);
+                })
+            }
+        }) 
+        console.log(warMovieIds)
 }
 
 warBtn.addEventListener("click", warData)
+
+var westernShuffledArr = function (westernMovieIds) {
+    westernMovieIds.sort(() => Math.random() - 0.5);
+}
 
 var westernData = function () {
 
@@ -331,25 +539,32 @@ var westernData = function () {
 
     fetch(westernApiURL)
         .then(function (response) {
-            return response.json();
-        })
-        .then(function (data) {
-            console.log(data);
-        })
+            if (response.ok) {
+                response.json().then(function (data) {
+                    console.log(data);
+                    for (var i = 0; i < data.results.length; i++) {
+                        var movieId = data.results[i].id
+                        westernMovieIds.push(movieId)
+                    }
+                    westernShuffledArr(westernMovieIds);
+                })
+            }
+        }) 
+        console.log(westernMovieIds)
 }
 
 westernBtn.addEventListener("click", westernData)
 
-fetch("https://streaming-availability.p.rapidapi.com/get/basic?country=us&tmdb_id=movie%2F" + 580489 + "&output_language=en", {
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-host": "streaming-availability.p.rapidapi.com",
-		"x-rapidapi-key": "fd9a215c8fmsh1b12b778dc43cfdp16b61cjsn3480cfe25268"
-	}
-})
-.then(function (response) {
-    return response.json();
-})
-.then(function (data) {
-    console.log(data);
-})
+// fetch("https://streaming-availability.p.rapidapi.com/get/basic?country=us&tmdb_id=movie%2F" + 838189 + "&output_language=en", {
+// 	"method": "GET",
+// 	"headers": {
+// 		"x-rapidapi-host": "streaming-availability.p.rapidapi.com",
+// 		"x-rapidapi-key": "fd9a215c8fmsh1b12b778dc43cfdp16b61cjsn3480cfe25268"
+// 	}
+// })
+// .then(function (response) {
+//     return response.json();
+// })
+// .then(function (data) {
+//     console.log(data);
+// })
