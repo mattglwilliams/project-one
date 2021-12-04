@@ -13,34 +13,38 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;500&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/books.css" />
 </head>
 <body>
-    <h1>Book Search</h1>
 
-    <div class = "bookCard">
-        <input type = "text" placeholder="add a genre" class = "genre">
-        <input type = "text" placeholder="add a genre" class = "genre2">
-        <input type = "text" placeholder="add a genre" class = "genre3">
-        <button class = "bookButton">Search</button>
-
+    <div class="text-center my-3">Select your genre</div>
+    <div class="flex items-center">
+        <button class="bg-yellow-200 rounded-lg h-16 w-60 text-3xl my-3 action" value="action">Action</button>
+        <button class="bg-yellow-200 rounded-lg h-16 w-60 text-3xl my-3 adventure" value="adventure">Adventure</button>
+        <button class="bg-yellow-200 rounded-lg h-16 w-60 text-3xl my-3 comedy" value="comedy">Comedy</button>
+        <button class="bg-yellow-200 rounded-lg h-16 w-60 text-3xl my-3 crime" value="crime">Crime</button>
+        <button class="bg-yellow-200 rounded-lg h-16 w-60 text-3xl my-3 fantasy" value="fantasy">Fantasy</button>
+        <button class="bg-yellow-200 rounded-lg h-16 w-60 text-3xl my-3 history" value="history">History</button>
+        <button class="bg-yellow-200 rounded-lg h-16 w-60 text-3xl my-3 horror" value="horror">Horror</button>
+        <button class="bg-yellow-200 rounded-lg h-16 w-60 text-3xl my-3 kids" value="kids">Kids</button>
+        <button class="bg-yellow-200 rounded-lg h-16 w-60 text-3xl my-3 music" value="music">Music</button>
+        <button class="bg-yellow-200 rounded-lg h-16 w-60 text-3xl my-3 mystery" value="mystery">Mystery</button>
+        <button class="bg-yellow-200 rounded-lg h-16 w-60 text-3xl my-3 non-fiction" value="nonfiction">Non-Fiction</button>
+        <button class="bg-yellow-200 rounded-lg h-16 w-60 text-3xl my-3 politics" value="politics">Politics</button>
+        <button class="bg-yellow-200 rounded-lg h-16 w-60 text-3xl my-3 romance" value="romance">Romance</button>
+        <button class="bg-yellow-200 rounded-lg h-16 w-60 text-3xl my-3 sport" value="sport">Sport</button>
+        <button class="bg-yellow-200 rounded-lg h-16 w-60 text-3xl my-3 thriller" value="thriller">Thriller</button>
+        <button class="bg-yellow-200 rounded-lg h-16 w-60 text-3xl my-3 war" value="war">War</button>
+        <button class="bg-yellow-200 rounded-lg h-16 w-60 text-3xl my-3 western" value="western">Western</button>
     </div>
-    <br>
-    <br>
-
-    <div class = "selectors">
-        <h2>Romance</h2>
-        <h2>Sport</h2>
-        <h2>History</h2>
-        <h2>Thriller</h2>
-    </div>
 
 
-    <div class ="displayBook">
+    <!-- <div class = "displayBook">
 
-    </div>
-    
-  
-    <script src="assets/js/books.js"></script>
+    </div> -->
+
+    <script src="./assets/js/books.js"></script>
 </body>
+
 </html>
