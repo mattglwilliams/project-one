@@ -1,5 +1,5 @@
 //variables for elements to render
-var displayBookEl = document.querySelector('.displayBook');
+var displayBookEl = document.querySelector('.displayBook')
 
 // variables for buttons 
 var actionBookBtn = document.querySelector(".action")
@@ -39,8 +39,12 @@ var thrillerBookValue = thrillerBookBtn.value
 var warBookValue = warBookBtn.value
 var westernBookValue = westernBookBtn.value
 
+
+
 // to use in URL so a random page is returned from API
 var randomNum = Math.floor(Math.random() * 10)
+
+
 
 //functions for each genre button to return data from API
 var fetchActionBookData = function () {
@@ -53,6 +57,44 @@ var fetchActionBookData = function () {
         })
         .then(function (data) {
             console.log(data);
+            displayBookEl.textContent="";
+            for (var i = 0; i<=2;i++){
+              var displayCard = document.createElement('div');
+              var cardContainer = document.createElement('div');  
+              var displayImage = document.createElement('div');
+              var imageContainer = document.createElement('div');
+              var bookImage = document.createElement('img');
+              displayImage.setAttribute("class","max-w-sm mx-auto flex p-3 bg-white rounded-lg shadow-xl")   ;
+              imageContainer.setAttribute("class","flex-shrink-0");
+              var bookTitle = document.createElement('h4');
+              var bookDescription = document.createElement('p');
+              displayCard.setAttribute("class","max-w-sm mx-auto flex p-3 bg-white rounded-lg shadow-xl");
+              cardContainer.setAttribute("class", "flex-shrink-0");
+              bookTitle.setAttribute("class", "text-xl text-gray-900 displayBook");
+              bookDescription.setAttribute("class", "text-base text-gray-600 displayBook");
+              bookTitle= JSON.stringify(data.items[i].volumeInfo.title) ;
+              bookDescription.textContent = `Description: ${data.items[i].volumeInfo.description}`;
+              bookImage.setAttribute("src", data.items[i].volumeInfo.imageLinks.smallThumbnail);
+              console.log(bookTitle);
+                    
+              displayImage.append(bookImage);
+              
+              displayCard.append(bookTitle);
+              displayCard.append(bookDescription);
+              displayBookEl.append(displayImage);
+              displayBookEl.append(displayCard);
+              displayBookEl.append(cardContainer);
+             
+              
+          
+        
+              // bookImage.setAttribute("src", data.items[i].volumeInfo.imageLinks.smallThumbnail);
+              // if (data.items[i].volumeInfo.imageLinks.smallThumbnail){
+              //       displayBookEl.append(bookImage);
+              // }else{
+              //       bookImage.setAttribute("src", noImage.webp) //TODO - get a placeholder image for books with no thumbnail
+              // }
+      }
         })
 }
 
@@ -68,7 +110,45 @@ var fetchAdventureBookData = function () {
         })
         .then(function (data) {
             console.log(data);
-        })
+            displayBookEl.textContent="";
+            for (var i = 0; i<=2;i++){
+              var displayCard = document.createElement('div');
+              var cardContainer = document.createElement('div');  
+              var displayImage = document.createElement('div');
+              var imageContainer = document.createElement('div');
+              var bookImage = document.createElement('img');
+              displayImage.setAttribute("class","max-w-sm mx-auto flex p-3 bg-white rounded-lg shadow-xl")   ;
+              imageContainer.setAttribute("class","flex-shrink-0");
+              var bookTitle = document.createElement('h4');
+              var bookDescription = document.createElement('p');
+              displayCard.setAttribute("class","max-w-sm mx-auto flex p-3 bg-white rounded-lg shadow-xl");
+              cardContainer.setAttribute("class", "flex-shrink-0");
+              bookTitle.setAttribute("class", "text-xl text-gray-900 displayBook");
+              bookDescription.setAttribute("class", "text-base text-gray-600 displayBook");
+              bookTitle= JSON.stringify(data.items[i].volumeInfo.title) ;
+              bookDescription.textContent = `Description: ${data.items[i].volumeInfo.description}`;
+              bookImage.setAttribute("src", data.items[i].volumeInfo.imageLinks.smallThumbnail);
+              console.log(bookTitle);
+                    
+              displayImage.append(bookImage);
+              
+              displayCard.append(bookTitle);
+              displayCard.append(bookDescription);
+              displayBookEl.append(displayImage);
+              displayBookEl.append(displayCard);
+              displayBookEl.append(cardContainer);
+             
+              
+          
+        
+              // bookImage.setAttribute("src", data.items[i].volumeInfo.imageLinks.smallThumbnail);
+              // if (data.items[i].volumeInfo.imageLinks.smallThumbnail){
+              //       displayBookEl.append(bookImage);
+              // }else{
+              //       bookImage.setAttribute("src", noImage.webp) //TODO - get a placeholder image for books with no thumbnail
+              // }
+      }
+    })
 }
 
 adventureBookBtn.addEventListener("click", fetchAdventureBookData)
@@ -84,6 +164,44 @@ var fetchComedyBookData = function () {
         })
         .then(function (data) {
             console.log(data);
+            displayBookEl.textContent="";
+            for (var i = 0; i<=2;i++){
+              var displayCard = document.createElement('div');
+              var cardContainer = document.createElement('div');  
+              var displayImage = document.createElement('div');
+              var imageContainer = document.createElement('div');
+              var bookImage = document.createElement('img');
+              displayImage.setAttribute("class","max-w-sm mx-auto flex p-3 bg-white rounded-lg shadow-xl")   ;
+              imageContainer.setAttribute("class","flex-shrink-0");
+              var bookTitle = document.createElement('h4');
+              var bookDescription = document.createElement('p');
+              displayCard.setAttribute("class","max-w-sm mx-auto flex p-3 bg-white rounded-lg shadow-xl");
+              cardContainer.setAttribute("class", "flex-shrink-0");
+              bookTitle.setAttribute("class", "text-xl text-gray-900 displayBook");
+              bookDescription.setAttribute("class", "text-base text-gray-600 displayBook");
+              bookTitle= JSON.stringify(data.items[i].volumeInfo.title) ;
+              bookDescription.textContent = `Description: ${data.items[i].volumeInfo.description}`;
+              bookImage.setAttribute("src", data.items[i].volumeInfo.imageLinks.smallThumbnail);
+              console.log(bookTitle);
+                    
+              displayImage.append(bookImage);
+              
+              displayCard.append(bookTitle);
+              displayCard.append(bookDescription);
+              displayBookEl.append(displayImage);
+              displayBookEl.append(displayCard);
+              displayBookEl.append(cardContainer);
+             
+              
+          
+        
+              // bookImage.setAttribute("src", data.items[i].volumeInfo.imageLinks.smallThumbnail);
+              // if (data.items[i].volumeInfo.imageLinks.smallThumbnail){
+              //       displayBookEl.append(bookImage);
+              // }else{
+              //       bookImage.setAttribute("src", noImage.webp) //TODO - get a placeholder image for books with no thumbnail
+              // }
+      }
         })
 }
 
@@ -99,6 +217,44 @@ var fetchCrimeBookData = function () {
         })
         .then(function (data) {
             console.log(data);
+            displayBookEl.textContent="";
+            for (var i = 0; i<=2;i++){
+              var displayCard = document.createElement('div');
+              var cardContainer = document.createElement('div');  
+              var displayImage = document.createElement('div');
+              var imageContainer = document.createElement('div');
+              var bookImage = document.createElement('img');
+              displayImage.setAttribute("class","max-w-sm mx-auto flex p-3 bg-white rounded-lg shadow-xl")   ;
+              imageContainer.setAttribute("class","flex-shrink-0");
+              var bookTitle = document.createElement('h4');
+              var bookDescription = document.createElement('p');
+              displayCard.setAttribute("class","max-w-sm mx-auto flex p-3 bg-white rounded-lg shadow-xl");
+              cardContainer.setAttribute("class", "flex-shrink-0");
+              bookTitle.setAttribute("class", "text-xl text-gray-900 displayBook");
+              bookDescription.setAttribute("class", "text-base text-gray-600 displayBook");
+              bookTitle= JSON.stringify(data.items[i].volumeInfo.title) ;
+              bookDescription.textContent = `Description: ${data.items[i].volumeInfo.description}`;
+              bookImage.setAttribute("src", data.items[i].volumeInfo.imageLinks.smallThumbnail);
+              console.log(bookTitle);
+                    
+              displayImage.append(bookImage);
+              
+              displayCard.append(bookTitle);
+              displayCard.append(bookDescription);
+              displayBookEl.append(displayImage);
+              displayBookEl.append(displayCard);
+              displayBookEl.append(cardContainer);
+             
+              
+          
+        
+              // bookImage.setAttribute("src", data.items[i].volumeInfo.imageLinks.smallThumbnail);
+              // if (data.items[i].volumeInfo.imageLinks.smallThumbnail){
+              //       displayBookEl.append(bookImage);
+              // }else{
+              //       bookImage.setAttribute("src", noImage.webp) //TODO - get a placeholder image for books with no thumbnail
+              // }
+      }
         })
 }
 
@@ -115,6 +271,44 @@ var fantasyBookData = function () {
         })
         .then(function (data) {
             console.log(data);
+            displayBookEl.textContent="";
+            for (var i = 0; i<=2;i++){
+              var displayCard = document.createElement('div');
+              var cardContainer = document.createElement('div');  
+              var displayImage = document.createElement('div');
+              var imageContainer = document.createElement('div');
+              var bookImage = document.createElement('img');
+              displayImage.setAttribute("class","max-w-sm mx-auto flex p-3 bg-white rounded-lg shadow-xl")   ;
+              imageContainer.setAttribute("class","flex-shrink-0");
+              var bookTitle = document.createElement('h4');
+              var bookDescription = document.createElement('p');
+              displayCard.setAttribute("class","max-w-sm mx-auto flex p-3 bg-white rounded-lg shadow-xl");
+              cardContainer.setAttribute("class", "flex-shrink-0");
+              bookTitle.setAttribute("class", "text-xl text-gray-900 displayBook");
+              bookDescription.setAttribute("class", "text-base text-gray-600 displayBook");
+              bookTitle= JSON.stringify(data.items[i].volumeInfo.title) ;
+              bookDescription.textContent = `Description: ${data.items[i].volumeInfo.description}`;
+              bookImage.setAttribute("src", data.items[i].volumeInfo.imageLinks.smallThumbnail);
+              console.log(bookTitle);
+                    
+              displayImage.append(bookImage);
+              
+              displayCard.append(bookTitle);
+              displayCard.append(bookDescription);
+              displayBookEl.append(displayImage);
+              displayBookEl.append(displayCard);
+              displayBookEl.append(cardContainer);
+             
+              
+          
+        
+              // bookImage.setAttribute("src", data.items[i].volumeInfo.imageLinks.smallThumbnail);
+              // if (data.items[i].volumeInfo.imageLinks.smallThumbnail){
+              //       displayBookEl.append(bookImage);
+              // }else{
+              //       bookImage.setAttribute("src", noImage.webp) //TODO - get a placeholder image for books with no thumbnail
+              // }
+      }
         })
 }
 
@@ -130,6 +324,44 @@ var historyBookData = function () {
         })
         .then(function (data) {
             console.log(data);
+            displayBookEl.textContent="";
+            for (var i = 0; i<=2;i++){
+              var displayCard = document.createElement('div');
+              var cardContainer = document.createElement('div');  
+              var displayImage = document.createElement('div');
+              var imageContainer = document.createElement('div');
+              var bookImage = document.createElement('img');
+              displayImage.setAttribute("class","max-w-sm mx-auto flex p-3 bg-white rounded-lg shadow-xl")   ;
+              imageContainer.setAttribute("class","flex-shrink-0");
+              var bookTitle = document.createElement('h4');
+              var bookDescription = document.createElement('p');
+              displayCard.setAttribute("class","max-w-sm mx-auto flex p-3 bg-white rounded-lg shadow-xl");
+              cardContainer.setAttribute("class", "flex-shrink-0");
+              bookTitle.setAttribute("class", "text-xl text-gray-900 displayBook");
+              bookDescription.setAttribute("class", "text-base text-gray-600 displayBook");
+              bookTitle= JSON.stringify(data.items[i].volumeInfo.title) ;
+              bookDescription.textContent = `Description: ${data.items[i].volumeInfo.description}`;
+              bookImage.setAttribute("src", data.items[i].volumeInfo.imageLinks.smallThumbnail);
+              console.log(bookTitle);
+                    
+              displayImage.append(bookImage);
+              
+              displayCard.append(bookTitle);
+              displayCard.append(bookDescription);
+              displayBookEl.append(displayImage);
+              displayBookEl.append(displayCard);
+              displayBookEl.append(cardContainer);
+             
+              
+          
+        
+              // bookImage.setAttribute("src", data.items[i].volumeInfo.imageLinks.smallThumbnail);
+              // if (data.items[i].volumeInfo.imageLinks.smallThumbnail){
+              //       displayBookEl.append(bookImage);
+              // }else{
+              //       bookImage.setAttribute("src", noImage.webp) //TODO - get a placeholder image for books with no thumbnail
+              // }
+      }
         })
 }
 
@@ -144,6 +376,44 @@ var horrorBookData = function () {
         })
         .then(function (data) {
             console.log(data);
+            displayBookEl.textContent="";
+            for (var i = 0; i<=2;i++){
+              var displayCard = document.createElement('div');
+              var cardContainer = document.createElement('div');  
+              var displayImage = document.createElement('div');
+              var imageContainer = document.createElement('div');
+              var bookImage = document.createElement('img');
+              displayImage.setAttribute("class","max-w-sm mx-auto flex p-3 bg-white rounded-lg shadow-xl")   ;
+              imageContainer.setAttribute("class","flex-shrink-0");
+              var bookTitle = document.createElement('h4');
+              var bookDescription = document.createElement('p');
+              displayCard.setAttribute("class","max-w-sm mx-auto flex p-3 bg-white rounded-lg shadow-xl");
+              cardContainer.setAttribute("class", "flex-shrink-0");
+              bookTitle.setAttribute("class", "text-xl text-gray-900 displayBook");
+              bookDescription.setAttribute("class", "text-base text-gray-600 displayBook");
+              bookTitle= JSON.stringify(data.items[i].volumeInfo.title) ;
+              bookDescription.textContent = `Description: ${data.items[i].volumeInfo.description}`;
+              bookImage.setAttribute("src", data.items[i].volumeInfo.imageLinks.smallThumbnail);
+              console.log(bookTitle);
+                    
+              displayImage.append(bookImage);
+              
+              displayCard.append(bookTitle);
+              displayCard.append(bookDescription);
+              displayBookEl.append(displayImage);
+              displayBookEl.append(displayCard);
+              displayBookEl.append(cardContainer);
+             
+              
+          
+        
+              // bookImage.setAttribute("src", data.items[i].volumeInfo.imageLinks.smallThumbnail);
+              // if (data.items[i].volumeInfo.imageLinks.smallThumbnail){
+              //       displayBookEl.append(bookImage);
+              // }else{
+              //       bookImage.setAttribute("src", noImage.webp) //TODO - get a placeholder image for books with no thumbnail
+              // }
+      }
         })
 }
 
@@ -158,6 +428,44 @@ var kidsBookData = function () {
       })
       .then(function (data) {
           console.log(data);
+          displayBookEl.textContent="";
+          for (var i = 0; i<=2;i++){
+            var displayCard = document.createElement('div');
+            var cardContainer = document.createElement('div');  
+            var displayImage = document.createElement('div');
+            var imageContainer = document.createElement('div');
+            var bookImage = document.createElement('img');
+            displayImage.setAttribute("class","max-w-sm mx-auto flex p-3 bg-white rounded-lg shadow-xl")   ;
+            imageContainer.setAttribute("class","flex-shrink-0");
+            var bookTitle = document.createElement('h4');
+            var bookDescription = document.createElement('p');
+            displayCard.setAttribute("class","max-w-sm mx-auto flex p-3 bg-white rounded-lg shadow-xl");
+            cardContainer.setAttribute("class", "flex-shrink-0");
+            bookTitle.setAttribute("class", "text-xl text-gray-900 displayBook");
+            bookDescription.setAttribute("class", "text-base text-gray-600 displayBook");
+            bookTitle= JSON.stringify(data.items[i].volumeInfo.title) ;
+            bookDescription.textContent = `Description: ${data.items[i].volumeInfo.description}`;
+            bookImage.setAttribute("src", data.items[i].volumeInfo.imageLinks.smallThumbnail);
+            console.log(bookTitle);
+                  
+            displayImage.append(bookImage);
+            
+            displayCard.append(bookTitle);
+            displayCard.append(bookDescription);
+            displayBookEl.append(displayImage);
+            displayBookEl.append(displayCard);
+            displayBookEl.append(cardContainer);
+           
+            
+        
+      
+            // bookImage.setAttribute("src", data.items[i].volumeInfo.imageLinks.smallThumbnail);
+            // if (data.items[i].volumeInfo.imageLinks.smallThumbnail){
+            //       displayBookEl.append(bookImage);
+            // }else{
+            //       bookImage.setAttribute("src", noImage.webp) //TODO - get a placeholder image for books with no thumbnail
+            // }
+    }
       })
 }
 
@@ -175,6 +483,44 @@ var musicBookData = function () {
         })
         .then(function (data) {
             console.log(data);
+            displayBookEl.textContent="";
+            for (var i = 0; i<=2;i++){
+              var displayCard = document.createElement('div');
+              var cardContainer = document.createElement('div');  
+              var displayImage = document.createElement('div');
+              var imageContainer = document.createElement('div');
+              var bookImage = document.createElement('img');
+              displayImage.setAttribute("class","max-w-sm mx-auto flex p-3 bg-white rounded-lg shadow-xl")   ;
+              imageContainer.setAttribute("class","flex-shrink-0");
+              var bookTitle = document.createElement('h4');
+              var bookDescription = document.createElement('p');
+              displayCard.setAttribute("class","max-w-sm mx-auto flex p-3 bg-white rounded-lg shadow-xl");
+              cardContainer.setAttribute("class", "flex-shrink-0");
+              bookTitle.setAttribute("class", "text-xl text-gray-900 displayBook");
+              bookDescription.setAttribute("class", "text-base text-gray-600 displayBook");
+              bookTitle= JSON.stringify(data.items[i].volumeInfo.title) ;
+              bookDescription.textContent = `Description: ${data.items[i].volumeInfo.description}`;
+              bookImage.setAttribute("src", data.items[i].volumeInfo.imageLinks.smallThumbnail);
+              console.log(bookTitle);
+                    
+              displayImage.append(bookImage);
+              
+              displayCard.append(bookTitle);
+              displayCard.append(bookDescription);
+              displayBookEl.append(displayImage);
+              displayBookEl.append(displayCard);
+              displayBookEl.append(cardContainer);
+             
+              
+          
+        
+              // bookImage.setAttribute("src", data.items[i].volumeInfo.imageLinks.smallThumbnail);
+              // if (data.items[i].volumeInfo.imageLinks.smallThumbnail){
+              //       displayBookEl.append(bookImage);
+              // }else{
+              //       bookImage.setAttribute("src", noImage.webp) //TODO - get a placeholder image for books with no thumbnail
+              // }
+      }
         })
 }
 
@@ -190,6 +536,44 @@ var mysteryBookData = function () {
         })
         .then(function (data) {
             console.log(data);
+            displayBookEl.textContent="";
+            for (var i = 0; i<=2;i++){
+              var displayCard = document.createElement('div');
+              var cardContainer = document.createElement('div');  
+              var displayImage = document.createElement('div');
+              var imageContainer = document.createElement('div');
+              var bookImage = document.createElement('img');
+              displayImage.setAttribute("class","max-w-sm mx-auto flex p-3 bg-white rounded-lg shadow-xl")   ;
+              imageContainer.setAttribute("class","flex-shrink-0");
+              var bookTitle = document.createElement('h4');
+              var bookDescription = document.createElement('p');
+              displayCard.setAttribute("class","max-w-sm mx-auto flex p-3 bg-white rounded-lg shadow-xl");
+              cardContainer.setAttribute("class", "flex-shrink-0");
+              bookTitle.setAttribute("class", "text-xl text-gray-900 displayBook");
+              bookDescription.setAttribute("class", "text-base text-gray-600 displayBook");
+              bookTitle= JSON.stringify(data.items[i].volumeInfo.title) ;
+              bookDescription.textContent = `Description: ${data.items[i].volumeInfo.description}`;
+              bookImage.setAttribute("src", data.items[i].volumeInfo.imageLinks.smallThumbnail);
+              console.log(bookTitle);
+                    
+              displayImage.append(bookImage);
+              
+              displayCard.append(bookTitle);
+              displayCard.append(bookDescription);
+              displayBookEl.append(displayImage);
+              displayBookEl.append(displayCard);
+              displayBookEl.append(cardContainer);
+             
+              
+          
+        
+              // bookImage.setAttribute("src", data.items[i].volumeInfo.imageLinks.smallThumbnail);
+              // if (data.items[i].volumeInfo.imageLinks.smallThumbnail){
+              //       displayBookEl.append(bookImage);
+              // }else{
+              //       bookImage.setAttribute("src", noImage.webp) //TODO - get a placeholder image for books with no thumbnail
+              // }
+      }
         })
 }
 
@@ -205,6 +589,44 @@ var nonFictionBookData = function () {
       })
       .then(function (data) {
           console.log(data);
+          displayBookEl.textContent="";
+          for (var i = 0; i<=2;i++){
+            var displayCard = document.createElement('div');
+            var cardContainer = document.createElement('div');  
+            var displayImage = document.createElement('div');
+            var imageContainer = document.createElement('div');
+            var bookImage = document.createElement('img');
+            displayImage.setAttribute("class","max-w-sm mx-auto flex p-3 bg-white rounded-lg shadow-xl")   ;
+            imageContainer.setAttribute("class","flex-shrink-0");
+            var bookTitle = document.createElement('h4');
+            var bookDescription = document.createElement('p');
+            displayCard.setAttribute("class","max-w-sm mx-auto flex p-3 bg-white rounded-lg shadow-xl");
+            cardContainer.setAttribute("class", "flex-shrink-0");
+            bookTitle.setAttribute("class", "text-xl text-gray-900 displayBook");
+            bookDescription.setAttribute("class", "text-base text-gray-600 displayBook");
+            bookTitle= JSON.stringify(data.items[i].volumeInfo.title) ;
+            bookDescription.textContent = `Description: ${data.items[i].volumeInfo.description}`;
+            bookImage.setAttribute("src", data.items[i].volumeInfo.imageLinks.smallThumbnail);
+            console.log(bookTitle);
+                  
+            displayImage.append(bookImage);
+            
+            displayCard.append(bookTitle);
+            displayCard.append(bookDescription);
+            displayBookEl.append(displayImage);
+            displayBookEl.append(displayCard);
+            displayBookEl.append(cardContainer);
+           
+            
+        
+      
+            // bookImage.setAttribute("src", data.items[i].volumeInfo.imageLinks.smallThumbnail);
+            // if (data.items[i].volumeInfo.imageLinks.smallThumbnail){
+            //       displayBookEl.append(bookImage);
+            // }else{
+            //       bookImage.setAttribute("src", noImage.webp) //TODO - get a placeholder image for books with no thumbnail
+            // }
+    }
       })
 }
 
@@ -220,6 +642,44 @@ var politicsBookData = function () {
       })
       .then(function (data) {
           console.log(data);
+          displayBookEl.textContent="";
+          for (var i = 0; i<=2;i++){
+            var displayCard = document.createElement('div');
+            var cardContainer = document.createElement('div');  
+            var displayImage = document.createElement('div');
+            var imageContainer = document.createElement('div');
+            var bookImage = document.createElement('img');
+            displayImage.setAttribute("class","max-w-sm mx-auto flex p-3 bg-white rounded-lg shadow-xl")   ;
+            imageContainer.setAttribute("class","flex-shrink-0");
+            var bookTitle = document.createElement('h4');
+            var bookDescription = document.createElement('p');
+            displayCard.setAttribute("class","max-w-sm mx-auto flex p-3 bg-white rounded-lg shadow-xl");
+            cardContainer.setAttribute("class", "flex-shrink-0");
+            bookTitle.setAttribute("class", "text-xl text-gray-900 displayBook");
+            bookDescription.setAttribute("class", "text-base text-gray-600 displayBook");
+            bookTitle= JSON.stringify(data.items[i].volumeInfo.title) ;
+            bookDescription.textContent = `Description: ${data.items[i].volumeInfo.description}`;
+            bookImage.setAttribute("src", data.items[i].volumeInfo.imageLinks.smallThumbnail);
+            console.log(bookTitle);
+                  
+            displayImage.append(bookImage);
+            
+            displayCard.append(bookTitle);
+            displayCard.append(bookDescription);
+            displayBookEl.append(displayImage);
+            displayBookEl.append(displayCard);
+            displayBookEl.append(cardContainer);
+           
+            
+        
+      
+            // bookImage.setAttribute("src", data.items[i].volumeInfo.imageLinks.smallThumbnail);
+            // if (data.items[i].volumeInfo.imageLinks.smallThumbnail){
+            //       displayBookEl.append(bookImage);
+            // }else{
+            //       bookImage.setAttribute("src", noImage.webp) //TODO - get a placeholder image for books with no thumbnail
+            // }
+    }
       })
 }
 
@@ -235,6 +695,44 @@ var romanceBookData = function () {
         })
         .then(function (data) {
             console.log(data);
+            displayBookEl.textContent="";
+            for (var i = 0; i<=2;i++){
+              var displayCard = document.createElement('div');
+              var cardContainer = document.createElement('div');  
+              var displayImage = document.createElement('div');
+              var imageContainer = document.createElement('div');
+              var bookImage = document.createElement('img');
+              displayImage.setAttribute("class","max-w-sm mx-auto flex p-3 bg-white rounded-lg shadow-xl")   ;
+              imageContainer.setAttribute("class","flex-shrink-0");
+              var bookTitle = document.createElement('h4');
+              var bookDescription = document.createElement('p');
+              displayCard.setAttribute("class","max-w-sm mx-auto flex p-3 bg-white rounded-lg shadow-xl");
+              cardContainer.setAttribute("class", "flex-shrink-0");
+              bookTitle.setAttribute("class", "text-xl text-gray-900 displayBook");
+              bookDescription.setAttribute("class", "text-base text-gray-600 displayBook");
+              bookTitle= JSON.stringify(data.items[i].volumeInfo.title) ;
+              bookDescription.textContent = `Description: ${data.items[i].volumeInfo.description}`;
+              bookImage.setAttribute("src", data.items[i].volumeInfo.imageLinks.smallThumbnail);
+              console.log(bookTitle);
+                    
+              displayImage.append(bookImage);
+              
+              displayCard.append(bookTitle);
+              displayCard.append(bookDescription);
+              displayBookEl.append(displayImage);
+              displayBookEl.append(displayCard);
+              displayBookEl.append(cardContainer);
+             
+              
+          
+        
+              // bookImage.setAttribute("src", data.items[i].volumeInfo.imageLinks.smallThumbnail);
+              // if (data.items[i].volumeInfo.imageLinks.smallThumbnail){
+              //       displayBookEl.append(bookImage);
+              // }else{
+              //       bookImage.setAttribute("src", noImage.webp) //TODO - get a placeholder image for books with no thumbnail
+              // }
+      }
         })
 }
 
@@ -252,6 +750,44 @@ var sportBookData = function () {
         })
         .then(function (data) {
             console.log(data);
+            displayBookEl.textContent="";
+            for (var i = 0; i<=2;i++){
+              var displayCard = document.createElement('div');
+              var cardContainer = document.createElement('div');  
+              var displayImage = document.createElement('div');
+              var imageContainer = document.createElement('div');
+              var bookImage = document.createElement('img');
+              displayImage.setAttribute("class","max-w-sm mx-auto flex p-3 bg-white rounded-lg shadow-xl")   ;
+              imageContainer.setAttribute("class","flex-shrink-0");
+              var bookTitle = document.createElement('h4');
+              var bookDescription = document.createElement('p');
+              displayCard.setAttribute("class","max-w-sm mx-auto flex p-3 bg-white rounded-lg shadow-xl");
+              cardContainer.setAttribute("class", "flex-shrink-0");
+              bookTitle.setAttribute("class", "text-xl text-gray-900 displayBook");
+              bookDescription.setAttribute("class", "text-base text-gray-600 displayBook");
+              bookTitle= JSON.stringify(data.items[i].volumeInfo.title) ;
+              bookDescription.textContent = `Description: ${data.items[i].volumeInfo.description}`;
+              bookImage.setAttribute("src", data.items[i].volumeInfo.imageLinks.smallThumbnail);
+              console.log(bookTitle);
+                    
+              displayImage.append(bookImage);
+              
+              displayCard.append(bookTitle);
+              displayCard.append(bookDescription);
+              displayBookEl.append(displayImage);
+              displayBookEl.append(displayCard);
+              displayBookEl.append(cardContainer);
+             
+              
+          
+        
+              // bookImage.setAttribute("src", data.items[i].volumeInfo.imageLinks.smallThumbnail);
+              // if (data.items[i].volumeInfo.imageLinks.smallThumbnail){
+              //       displayBookEl.append(bookImage);
+              // }else{
+              //       bookImage.setAttribute("src", noImage.webp) //TODO - get a placeholder image for books with no thumbnail
+              // }
+      }
         })
 }
 
@@ -267,6 +803,44 @@ var thrillerBookData = function () {
         })
         .then(function (data) {
             console.log(data);
+            displayBookEl.textContent="";
+            for (var i = 0; i<=2;i++){
+              var displayCard = document.createElement('div');
+              var cardContainer = document.createElement('div');  
+              var displayImage = document.createElement('div');
+              var imageContainer = document.createElement('div');
+              var bookImage = document.createElement('img');
+              displayImage.setAttribute("class","max-w-sm mx-auto flex p-3 bg-white rounded-lg shadow-xl")   ;
+              imageContainer.setAttribute("class","flex-shrink-0");
+              var bookTitle = document.createElement('h4');
+              var bookDescription = document.createElement('p');
+              displayCard.setAttribute("class","max-w-sm mx-auto flex p-3 bg-white rounded-lg shadow-xl");
+              cardContainer.setAttribute("class", "flex-shrink-0");
+              bookTitle.setAttribute("class", "text-xl text-gray-900 displayBook");
+              bookDescription.setAttribute("class", "text-base text-gray-600 displayBook");
+              bookTitle= JSON.stringify(data.items[i].volumeInfo.title) ;
+              bookDescription.textContent = `Description: ${data.items[i].volumeInfo.description}`;
+              bookImage.setAttribute("src", data.items[i].volumeInfo.imageLinks.smallThumbnail);
+              console.log(bookTitle);
+                    
+              displayImage.append(bookImage);
+              
+              displayCard.append(bookTitle);
+              displayCard.append(bookDescription);
+              displayBookEl.append(displayImage);
+              displayBookEl.append(displayCard);
+              displayBookEl.append(cardContainer);
+             
+              
+          
+        
+              // bookImage.setAttribute("src", data.items[i].volumeInfo.imageLinks.smallThumbnail);
+              // if (data.items[i].volumeInfo.imageLinks.smallThumbnail){
+              //       displayBookEl.append(bookImage);
+              // }else{
+              //       bookImage.setAttribute("src", noImage.webp) //TODO - get a placeholder image for books with no thumbnail
+              // }
+      }
         })
 }
 
@@ -282,6 +856,44 @@ var warBookData = function () {
         })
         .then(function (data) {
             console.log(data);
+            displayBookEl.textContent="";
+            for (var i = 0; i<=2;i++){
+              var displayCard = document.createElement('div');
+              var cardContainer = document.createElement('div');  
+              var displayImage = document.createElement('div');
+              var imageContainer = document.createElement('div');
+              var bookImage = document.createElement('img');
+              displayImage.setAttribute("class","max-w-sm mx-auto flex p-3 bg-white rounded-lg shadow-xl")   ;
+              imageContainer.setAttribute("class","flex-shrink-0");
+              var bookTitle = document.createElement('h4');
+              var bookDescription = document.createElement('p');
+              displayCard.setAttribute("class","max-w-sm mx-auto flex p-3 bg-white rounded-lg shadow-xl");
+              cardContainer.setAttribute("class", "flex-shrink-0");
+              bookTitle.setAttribute("class", "text-xl text-gray-900 displayBook");
+              bookDescription.setAttribute("class", "text-base text-gray-600 displayBook");
+              bookTitle= JSON.stringify(data.items[i].volumeInfo.title) ;
+              bookDescription.textContent = `Description: ${data.items[i].volumeInfo.description}`;
+              bookImage.setAttribute("src", data.items[i].volumeInfo.imageLinks.smallThumbnail);
+              console.log(bookTitle);
+                    
+              displayImage.append(bookImage);
+              
+              displayCard.append(bookTitle);
+              displayCard.append(bookDescription);
+              displayBookEl.append(displayImage);
+              displayBookEl.append(displayCard);
+              displayBookEl.append(cardContainer);
+             
+              
+          
+        
+              // bookImage.setAttribute("src", data.items[i].volumeInfo.imageLinks.smallThumbnail);
+              // if (data.items[i].volumeInfo.imageLinks.smallThumbnail){
+              //       displayBookEl.append(bookImage);
+              // }else{
+              //       bookImage.setAttribute("src", noImage.webp) //TODO - get a placeholder image for books with no thumbnail
+              // }
+      }
         })
 }
 
@@ -299,40 +911,50 @@ var westernBookData = function () {
         })
         .then(function (data) {
             console.log(data);
+            displayBookEl.textContent="";
             for (var i = 0; i<=2;i++){
-                    var bookTitle = document.createElement('p');
-                    var bookImage =document.createElement('img');
+                    var displayCard = document.createElement('div');
+                    var cardContainer = document.createElement('div');  
+                    var displayImage = document.createElement('div');
+                    var imageContainer = document.createElement('div');
+                    var bookImage = document.createElement('img');
+                    displayImage.setAttribute("class","max-w-sm mx-auto flex p-3 bg-white rounded-lg shadow-xl")   ;
+                    imageContainer.setAttribute("class","flex-shrink-0");
+                    var bookTitle = document.createElement('h4');
                     var bookDescription = document.createElement('p');
-                    bookTitle.textContent= `Title: ${data.items[i].volumeInfo.title}`;
+                    displayCard.setAttribute("class","max-w-sm mx-auto flex p-3 bg-white rounded-lg shadow-xl");
+                    cardContainer.setAttribute("class", "flex-shrink-0");
+                    bookTitle.setAttribute("class", "text-xl text-gray-900 displayBook");
+                    bookDescription.setAttribute("class", "text-base text-gray-600 displayBook");
+                    bookTitle= JSON.stringify(data.items[i].volumeInfo.title) ;
                     bookDescription.textContent = `Description: ${data.items[i].volumeInfo.description}`;
-                    console.log(bookTitle);
-                    console.log(bookDescription);
-                    localStorage.setItem('bookTitle', bookTitle);
-                    localStorage.setItem('bookDescription', bookDescription);
-                    document.location = './book-results.html';
-                    localStorage.getItem('bookTitle');
-                    localStorage.getItem('bookDescription');
-                    displayBookEl.append(bookTitle);
-                    displayBookEl.append(bookDescription);
-              
                     bookImage.setAttribute("src", data.items[i].volumeInfo.imageLinks.smallThumbnail);
-                    if (data.items[i].volumeInfo.imageLinks.smallThumbnail){
-                          displayBookEl.append(bookImage);
-                    }else{
-                          bookImage.setAttribute("src", noImage.webp) //TODO - get a placeholder image for books with no thumbnail
-                    }
+                    console.log(bookTitle);
+                          
+                    displayImage.append(bookImage);
+                    
+                    displayCard.append(bookTitle);
+                    displayCard.append(bookDescription);
+                    displayBookEl.append(displayImage);
+                    displayBookEl.append(displayCard);
+                    displayBookEl.append(cardContainer);
+                   
+                    
+                
+              
+                    // bookImage.setAttribute("src", data.items[i].volumeInfo.imageLinks.smallThumbnail);
+                    // if (data.items[i].volumeInfo.imageLinks.smallThumbnail){
+                    //       displayBookEl.append(bookImage);
+                    // }else{
+                    //       bookImage.setAttribute("src", noImage.webp) //TODO - get a placeholder image for books with no thumbnail
+                    // }
             }
            
         })
 }
 
-westernBookBtn.addEventListener("click", westernBookData)
+ westernBookBtn.addEventListener("click", westernBookData)
 
 
 
-// var scores = JSON.parse(localStorage.getItem("scoreTotal"))|| [];
-//   initials = initials.value;
-//   var newScore = { initials, score };
-//   console.log(newScore)
-//   scores.push(newScore);
-//   localStorage.setItem("scoreTotal", JSON.stringify(scores));
+
