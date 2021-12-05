@@ -1,67 +1,55 @@
 {
-    "imdbID": "tt13650480",
-    "tmdbID": "114695",
-    "imdbRating": 65,
-    "imdbVoteCount": 3672,
-    "tmdbRating": 76,
-    "backdropPath": "/wAEWZm2pSopAbqE5dQWE0ET8aR5.jpg",
+    "imdbID": "tt7097896",
+    "tmdbID": "580489",
+    "imdbRating": 61,
+    "imdbVoteCount": 99819,
+    "tmdbRating": 72,
+    "backdropPath": "/70nxSw3mFBsGmtkvcs91PbjerwD.jpg",
     "backdropURLs": {
-        "1280": "https://image.tmdb.org/t/p/w1280/wAEWZm2pSopAbqE5dQWE0ET8aR5.jpg",
-        "300": "https://image.tmdb.org/t/p/w300/wAEWZm2pSopAbqE5dQWE0ET8aR5.jpg",
-        "780": "https://image.tmdb.org/t/p/w780/wAEWZm2pSopAbqE5dQWE0ET8aR5.jpg",
-        "original": "https://image.tmdb.org/t/p/original/wAEWZm2pSopAbqE5dQWE0ET8aR5.jpg"
+        "1280": "https://image.tmdb.org/t/p/w1280/70nxSw3mFBsGmtkvcs91PbjerwD.jpg",
+        "300": "https://image.tmdb.org/t/p/w300/70nxSw3mFBsGmtkvcs91PbjerwD.jpg",
+        "780": "https://image.tmdb.org/t/p/w780/70nxSw3mFBsGmtkvcs91PbjerwD.jpg",
+        "original": "https://image.tmdb.org/t/p/original/70nxSw3mFBsGmtkvcs91PbjerwD.jpg"
     },
-    "originalTitle": "Marvel Studios: Legends",
+    "originalTitle": "Venom: Let There Be Carnage",
     "genres": [
-        6,
         28,
-        14
+        12,
+        878
     ],
     "countries": [
+        "CN",
         "US"
     ],
     "year": 2021,
-    "firstAirYear": 2021,
-    "lastAirYear": 2021,
-    "episodeRuntimes": [
-        8
-    ],
+    "runtime": 97,
     "cast": [
-        "Chris Evans",
-        "Robert Downey Jr.",
-        "Scarlett Johansson",
-        "Mark Ruffalo",
-        "Paul Bettany",
-        "Josh Brolin",
-        "Sebastian Stan"
+        "Tom Hardy",
+        "Woody Harrelson",
+        "Michelle Williams",
+        "Naomie Harris",
+        "Reid Scott",
+        "Stephen Graham",
+        "Peggy Lu"
     ],
-    "significants": [],
-    "title": "Marvel Studios: Legends",
-    "overview": "Revisit the epic heroes, villains and moments from across the MCU in preparation for the stories still to come. Each dynamic segment feeds directly into the upcoming series — setting the stage for future events. This series weaves together the many threads that constitute the unparalleled Marvel Cinematic Universe.",
-    "video": "Hfec-csvCSc",
-    "posterPath": "/EpDuYIK81YtCUT3gH2JDpyj8Qk.jpg",
+    "significants": [
+        "Andy Serkis"
+    ],
+    "title": "Venom: Let There Be Carnage",
+    "overview": "After finding a host body in investigative reporter Eddie Brock, the alien symbiote must face a new enemy, Carnage, the alter ego of serial killer Cletus Kasady.",
+    "tagline": "",
+    "video": "NMzJbD53ODc",
+    "posterPath": "/rjkmN1dniUHVYAtwuV3Tji7FsDO.jpg",
     "posterURLs": {
-        "154": "https://image.tmdb.org/t/p/w154/EpDuYIK81YtCUT3gH2JDpyj8Qk.jpg",
-        "185": "https://image.tmdb.org/t/p/w185/EpDuYIK81YtCUT3gH2JDpyj8Qk.jpg",
-        "342": "https://image.tmdb.org/t/p/w342/EpDuYIK81YtCUT3gH2JDpyj8Qk.jpg",
-        "500": "https://image.tmdb.org/t/p/w500/EpDuYIK81YtCUT3gH2JDpyj8Qk.jpg",
-        "780": "https://image.tmdb.org/t/p/w780/EpDuYIK81YtCUT3gH2JDpyj8Qk.jpg",
-        "92": "https://image.tmdb.org/t/p/w92/EpDuYIK81YtCUT3gH2JDpyj8Qk.jpg",
-        "original": "https://image.tmdb.org/t/p/original/EpDuYIK81YtCUT3gH2JDpyj8Qk.jpg"
+        "154": "https://image.tmdb.org/t/p/w154/rjkmN1dniUHVYAtwuV3Tji7FsDO.jpg",
+        "185": "https://image.tmdb.org/t/p/w185/rjkmN1dniUHVYAtwuV3Tji7FsDO.jpg",
+        "342": "https://image.tmdb.org/t/p/w342/rjkmN1dniUHVYAtwuV3Tji7FsDO.jpg",
+        "500": "https://image.tmdb.org/t/p/w500/rjkmN1dniUHVYAtwuV3Tji7FsDO.jpg",
+        "780": "https://image.tmdb.org/t/p/w780/rjkmN1dniUHVYAtwuV3Tji7FsDO.jpg",
+        "92": "https://image.tmdb.org/t/p/w92/rjkmN1dniUHVYAtwuV3Tji7FsDO.jpg",
+        "original": "https://image.tmdb.org/t/p/original/rjkmN1dniUHVYAtwuV3Tji7FsDO.jpg"
     },
-    "seasons": 1,
-    "episodes": 14,
-    "age": 12,
-    "status": 1,
-    "tagline": "As the universe expands, explore the stories of those destined to become legends.",
-    "streamingInfo": {
-        "disney": {
-            "us": {
-                "link": "https://www.disneyplus.com/series/-/7YmtoS60RMH6",
-                "added": 1610396452,
-                "leaving": 0
-            }
-        }
-    },
+    "age": 14,
+    "streamingInfo": {},
     "originalLanguage": "en"
 }
