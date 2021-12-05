@@ -1,5 +1,5 @@
 var fetchGenreData = function () {
-    var currentApiURL = "https://api.themoviedb.org/3/genre/movie/list?api_key=2fad5e038a5d373957de8c81a2825905&language=en-US";
+    var currentApiURL = "https://api.themoviedb.org/3/genre/tv/list?api_key=2fad5e038a5d373957de8c81a2825905&language=en-US";
 
     fetch(currentApiURL)
         .then(function (response) {
