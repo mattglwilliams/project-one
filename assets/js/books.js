@@ -20,26 +20,6 @@ var thrillerBookBtn = document.querySelector(".thriller")
 var warBookBtn = document.querySelector(".war")
 var westernBookBtn = document.querySelector(".western")
 
-// variables to get value from buttons
-// var actionBookValue = actionBookBtn.value
-// var adventureBookValue = adventureBookBtn.value
-// var comedyBookValue = comedyBookBtn.value
-// var crimeBookValue = crimeBookBtn.value
-// var fantasyBookValue = fantasyBookBtn.value
-// var historyBookValue = historyBookBtn.value
-// var horrorBookValue = horrorBookBtn.value
-// var kidsBookValue = kidsBookBtn.value
-// var musicBookValue = musicBookBtn.value
-// var mysteryBookValue = mysteryBookBtn.value
-// var nonFictionBookValue = nonFictionBookBtn.value
-// var politicsBookValue = politicsBookBtn.value
-// var romanceBookValue = romanceBookBtn.value
-// var sportBookValue = sportBookBtn.value
-// var thrillerBookValue = thrillerBookBtn.value
-// var warBookValue = warBookBtn.value
-// var westernBookValue = westernBookBtn.value
-
-
 var allBookGenreButtons = document.querySelectorAll('button[class^=btn]');
 var randomPage = Math.floor(Math.random() * 29)
 var genreShuffledArr = function (bookIds) {
@@ -60,56 +40,35 @@ for (var i = 0; i < allBookGenreButtons.length; i++) {
           displayBookEl.textContent="";
           
             for (var i=0;i<=2;i++){
-          
+           
             var displayCard = document.createElement('div');
-            var cardContainer = document.createElement('div');  
-            var displayImage = document.createElement('div');
-            var imageContainer = document.createElement('div');
-            var textContainer = document.createElement('div');
             var bookImage = document.createElement('img');
+            var cardBody = document.createElement('div');             
             var bookTitle = document.createElement('a');
             var bookDescription = document.createElement('p');
-        
-           // max-w-sm
-            displayImage.setAttribute("class","max-w-sm mx-auto flex p-3 bg-white rounded-lg shadow-xl")   ;
-            imageContainer.setAttribute("class","flex-shrink-0");
-            displayBookEl.setAttribute("class", "displayBook");
-            displayCard.setAttribute("class","mx-auto flex p-3 bg-white rounded-lg shadow-xl");
-            cardContainer.setAttribute("class", "flex-shrink-0");
-            textContainer.setAttribute("class"," flex ml-6 pt-1")
-            bookTitle.setAttribute("class", "flex-1 text-xl text-gray-900");
-            bookDescription.setAttribute("class", "flex-1 text-base text-gray-600");
-            //smallDescription.setAttribute("class", "text-base text-gray-600");
+
+            displayCard.setAttribute("class", "card");
+            displayCard.setAttribute("style", "width: 18rem;");
+            bookImage.setAttribute("class", "image-one card-img-top");
+            cardBody.setAttribute("class", "card-body");
+            bookTitle.setAttribute("class", "card-title")
+            bookDescription.setAttribute("class","desc-one card-text");
+           
             bookTitle.setAttribute("href", data.items[i].volumeInfo.previewLink);
             bookTitle.setAttribute("target", "_blank");             
             bookImage.setAttribute("src", data.items[i].volumeInfo.imageLinks.smallThumbnail);
-            bookImage.setAttribute("class", 'flex-1');
+           
             bookTitle.textContent = (data.items[i].volumeInfo.title);           
             bookDescription.textContent = (data.items[i].volumeInfo.description);
-            //description could be in a tool tip when hovering over title
-          
-            //console.log("desc " +bookDescription.textContent);
-           // console.log(typeof bookDescription.textContent);
-            //var descriptionSplit = bookDescription.textContent.split(" "); 
-            //console.log(descriptionSplit);
-            //smallDescription = descriptionSplit.slice(0,50);
-            //descriptionSplit = JSON.stringify();
 
-
-            //console.log(bookDescription);
-            //bookDescription = JSON.stringify();                        
-            //console.log(typeof descriptionSplit);               
-            displayImage.append(bookImage);             
-            displayCard.append(bookTitle);
-            displayCard.append(bookDescription);
-            //displayCard.append(smallDescription);             
-            displayBookEl.append(displayImage);
-            displayBookEl.append(displayCard);
-            displayBookEl.append(cardContainer);
-           
-            randomPage = Math.floor(Math.random() * 29)
-
+            cardBody.append(bookTitle);
+            cardBody.append(bookDescription);
+            displayCard.append(bookImage);
+            displayCard.append(cardBody);
+            displayBookEl.append(displayCard);     
         
+            randomPage = Math.floor(Math.random() * 29)
+       
             }
       })
 

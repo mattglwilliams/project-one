@@ -18,3 +18,37 @@ flex-direction: row;
     /* box-sizing: content-box; */
   /* }  */
 
+
+  .card{
+    padding: 10px;
+    margin: 5px;
+    background-color: #1a535c;
+  }
+
+  .card-body{
+    background-color:#bae9e5;
+  }
+ 
+  .btn {
+    background-color: #1a535c;
+    margin: 4px;
+    color: white;
+  }
+ .btn:hover{
+    background-color: #bae9e5;
+    border: solid 1px #1a535c;
+ }
+
+  body{
+      background-color: #f7fff7;
+  }
+
+  a{
+      font-size: large;
+      font-weight: bolder;
+  }
+/* 
+  #cfc0b7; */
+  /* ffcb69 */
+  /* #f2e8e3; */
+  /* #797d62; */
