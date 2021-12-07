@@ -1,14 +1,59 @@
-.movieBtn{
-    background-color:#928BDD;
-    /* min-width: 300px;
-    min-height: 300px; */
- 
+body {
+    background-color: rgb(240, 238, 238);
 }
 
-.tvBtn{
-    background-color:#DD9696;
-    /* min-width: 300px;
-    /* min-height: 300px; */
- 
-} 
+.header {
+    color: tomato;
+    font-size: 3em;
+}
 
+.btn {
+    /* border: rgb(32, 32, 32) 2px solid; */
+    background-color: white;
+    color: red;
+}
+
+.btn:hover {
+    background-color: rgb(32, 32, 32);
+    color: red;
+}
+
+.card {
+    margin: 0.5em;
+    border: rgb(44, 42, 42) solid 2px;
+    color: rgb(44, 42, 42);
+    box-shadow: 5px 8px 8px #888888;
+}
+
+.card > img {
+    margin-top: 6%;
+}
+
+.card-body > h2 {
+    font-size: 1.25em;
+    font-weight: 700;
+}
+
+.good-rating {
+    display: inline;
+    background-color: rgb(77, 151, 58);
+    color: white;
+    padding: 2%;
+    border-radius: 0.5em;
+}
+
+.ok-rating {
+    display: inline;
+    background-color: rgb(212, 160, 62);
+    color: white;
+    padding: 2%;
+    border-radius: 0.5em;
+}
+
+.bad-rating {
+    display: inline;
+    background-color: rgb(190, 62, 62);
+    color: white;
+    padding: 2%;
+    border-radius: 0.5em;
+}
