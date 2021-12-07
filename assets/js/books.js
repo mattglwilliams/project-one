@@ -65,30 +65,38 @@ for (var i = 0; i < allBookGenreButtons.length; i++) {
             var cardContainer = document.createElement('div');  
             var displayImage = document.createElement('div');
             var imageContainer = document.createElement('div');
+            var textContainer = document.createElement('div');
             var bookImage = document.createElement('img');
             var bookTitle = document.createElement('a');
             var bookDescription = document.createElement('p');
-            //var smallDescription=document.createElement('p');
-
+        
+           // max-w-sm
             displayImage.setAttribute("class","max-w-sm mx-auto flex p-3 bg-white rounded-lg shadow-xl")   ;
             imageContainer.setAttribute("class","flex-shrink-0");
             displayBookEl.setAttribute("class", "displayBook");
-            displayCard.setAttribute("class","max-w-sm mx-auto flex p-3 bg-white rounded-lg shadow-xl");
+            displayCard.setAttribute("class","mx-auto flex p-3 bg-white rounded-lg shadow-xl");
             cardContainer.setAttribute("class", "flex-shrink-0");
-            bookTitle.setAttribute("class", "text-xl text-gray-900");
-            //bookDescription.setAttribute("class", "text-base text-gray-600");
-           // smallDescription.setAttribute("class", "text-base text-gray-600");
+            textContainer.setAttribute("class"," flex ml-6 pt-1")
+            bookTitle.setAttribute("class", "flex-1 text-xl text-gray-900");
+            bookDescription.setAttribute("class", "flex-1 text-base text-gray-600");
+            //smallDescription.setAttribute("class", "text-base text-gray-600");
             bookTitle.setAttribute("href", data.items[i].volumeInfo.previewLink);
             bookTitle.setAttribute("target", "_blank");             
             bookImage.setAttribute("src", data.items[i].volumeInfo.imageLinks.smallThumbnail);
+            bookImage.setAttribute("class", 'flex-1');
             bookTitle.textContent = (data.items[i].volumeInfo.title);           
             bookDescription.textContent = (data.items[i].volumeInfo.description);
+            //description could be in a tool tip when hovering over title
+          
             //console.log("desc " +bookDescription.textContent);
            // console.log(typeof bookDescription.textContent);
-           // var descriptionSplit = bookDescription.textContent.split(" "); 
-           // console.log(descriptionSplit);
-           // smallDescription = descriptionSplit.slice(0,50);
-           // console.log(smallDescription);
+            //var descriptionSplit = bookDescription.textContent.split(" "); 
+            //console.log(descriptionSplit);
+            //smallDescription = descriptionSplit.slice(0,50);
+            //descriptionSplit = JSON.stringify();
+
+
+            //console.log(bookDescription);
             //bookDescription = JSON.stringify();                        
             //console.log(typeof descriptionSplit);               
             displayImage.append(bookImage);             
