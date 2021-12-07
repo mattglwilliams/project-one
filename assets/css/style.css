@@ -1,15 +1,32 @@
-.card {
-    margin: 0.5em;
-    background-color: rgb(168, 18, 18);
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.movie-btn{
+    background-color: rgb(66, 66, 66);
+    width: 50%;
+    height: 100vh;
     color: white;
 }
 
-.card > img {
-    margin-top: 6%;
+.movie-btn > h2 {
+    margin: 50% 40% 50% 40%;
 }
 
-.card-body > h2 {
-    font-size: 1.25em;
-    font-weight: 700;
+.tv-btn{
+    background-color: rgb(0, 0, 0);
+    width: 50%;
+    height: 100vh;
+    color: white;
 }
 
+.tv-btn > h2 {
+    margin: 50% 40% 50% 40%;
+}
