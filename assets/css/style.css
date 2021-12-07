@@ -1,32 +1,7 @@
-* {
-    margin: 0;
-    padding: 0;
+.indexMovie {
+  background-color: #ffcb69;
 }
 
-.container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
-.movie-btn{
-    background-color: rgb(66, 66, 66);
-    width: 50%;
-    height: 100vh;
-    color: white;
-}
-
-.movie-btn > h2 {
-    margin: 50% 40% 50% 40%;
-}
-
-.tv-btn{
-    background-color: rgb(0, 0, 0);
-    width: 50%;
-    height: 100vh;
-    color: white;
-}
-
-.tv-btn > h2 {
-    margin: 50% 40% 50% 40%;
+.indexBook {
+  background-color: #1a535c;
 }

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -19,6 +18,8 @@
 
   <div class="
         container
+        h-screen
+        text-white
         justify-center
         block
         mt-5
@@ -26,21 +27,35 @@
         px-2
         sm:flex
         justify-center
+      "
+    >
+      <!-- Movie card -->
+      <div
+        class="
+          flex
+          flex-col
+          indexMovie
       ">
     <!-- HOME COMPONENTS -->
     <div class="
           bg-green-200
           border border-black-400
           text-center
+          pt-20
+          w-full
           p-4
           rounded
           relative
           mx-auto
           my-3
-          w-60
-          h-60
-          block
+          h-1/2
           sm:inline
+        "
+      >
+        <p class="font-bold mb-5">
+          Bored of spending more time looking for something to watch than
+          actually watching something ?
+        </p>
         ">
       <p class="font-bold mb-5">
         Bored of spending more time looking for something to watch than
@@ -56,6 +71,37 @@
             px-4
             rounded
             mt-3
+          "
+        >
+          click here
+        </a>
+      </div>
+
+      <!-- book card -->
+      <div
+      class="
+      flex
+      flex-col
+      indexBook
+      text-center
+      pt-20
+      w-full
+      p-4
+      rounded
+      relative
+      mx-auto
+      my-3
+      h-1/2
+      sm:inline
+    "
+      >
+        <p class="font-bold mb-7">
+          Tired of spending hours on end staring at a screen and looking to find
+          alternative entertainment in a book?
+        </p>
+        <a
+          href=""
+          class="
           ">
         click here
       </a>
@@ -79,7 +125,6 @@
       <a href="" class="
             bg-red-500
             hover:bg-red-400
-            text-white
             font-bold
             py-2
             px-4
