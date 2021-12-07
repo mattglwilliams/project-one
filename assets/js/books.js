@@ -21,23 +21,23 @@ var warBookBtn = document.querySelector(".war")
 var westernBookBtn = document.querySelector(".western")
 
 // variables to get value from buttons
-var actionBookValue = actionBookBtn.value
-var adventureBookValue = adventureBookBtn.value
-var comedyBookValue = comedyBookBtn.value
-var crimeBookValue = crimeBookBtn.value
-var fantasyBookValue = fantasyBookBtn.value
-var historyBookValue = historyBookBtn.value
-var horrorBookValue = horrorBookBtn.value
-var kidsBookValue = kidsBookBtn.value
-var musicBookValue = musicBookBtn.value
-var mysteryBookValue = mysteryBookBtn.value
-var nonFictionBookValue = nonFictionBookBtn.value
-var politicsBookValue = politicsBookBtn.value
-var romanceBookValue = romanceBookBtn.value
-var sportBookValue = sportBookBtn.value
-var thrillerBookValue = thrillerBookBtn.value
-var warBookValue = warBookBtn.value
-var westernBookValue = westernBookBtn.value
+// var actionBookValue = actionBookBtn.value
+// var adventureBookValue = adventureBookBtn.value
+// var comedyBookValue = comedyBookBtn.value
+// var crimeBookValue = crimeBookBtn.value
+// var fantasyBookValue = fantasyBookBtn.value
+// var historyBookValue = historyBookBtn.value
+// var horrorBookValue = horrorBookBtn.value
+// var kidsBookValue = kidsBookBtn.value
+// var musicBookValue = musicBookBtn.value
+// var mysteryBookValue = mysteryBookBtn.value
+// var nonFictionBookValue = nonFictionBookBtn.value
+// var politicsBookValue = politicsBookBtn.value
+// var romanceBookValue = romanceBookBtn.value
+// var sportBookValue = sportBookBtn.value
+// var thrillerBookValue = thrillerBookBtn.value
+// var warBookValue = warBookBtn.value
+// var westernBookValue = westernBookBtn.value
 
 
 var allBookGenreButtons = document.querySelectorAll('button[class^=btn]');
@@ -56,7 +56,7 @@ for (var i = 0; i < allBookGenreButtons.length; i++) {
           return response.json();
       })
       .then(function (data) {
-          
+          console.log(data)
           displayBookEl.textContent="";
           
             for (var i=0;i<=2;i++){
