@@ -4,27 +4,30 @@ body {
 
 .header {
     color: tomato;
-    font-size: 3em;
+}
+
+.nav-btn > a {
+    background-color: tomato;
+    color: white;
 }
 
 .btn {
-    /* border: rgb(32, 32, 32) 2px solid; */
     background-color: white;
-    color: red;
+    color: tomato;
 }
 
 .btn > a{
-    color: red;
+    color: tomato;
 }
 
 .btn:hover {
     background-color: rgb(32, 32, 32);
-    color: red;
+    color: tomato;
 }
 
 .btn:focus {
     background-color: rgb(32, 32, 32);
-    color: red;
+    color: tomato;
 }
 
 .card {
@@ -57,12 +60,12 @@ body {
 }
 
 .stream-link {
-    color: rgb(180, 33, 33);
+    color: tomato;
     text-decoration: underline;
 }
 
 .stream-link > a {
-    color: rgb(180, 33, 33);
+    color: tomato;
 }
 
 .stream-link:hover {
