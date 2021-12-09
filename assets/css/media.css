@@ -4,18 +4,30 @@ body {
 
 .header {
     color: tomato;
-    font-size: 3em;
+}
+
+.nav-btn > a {
+    background-color: tomato;
+    color: white;
 }
 
 .btn {
-    /* border: rgb(32, 32, 32) 2px solid; */
     background-color: white;
-    color: red;
+    color: tomato;
+}
+
+.btn > a{
+    color: tomato;
 }
 
 .btn:hover {
     background-color: rgb(32, 32, 32);
-    color: red;
+    color: tomato;
+}
+
+.btn:focus {
+    background-color: rgb(32, 32, 32);
+    color: tomato;
 }
 
 .card {
@@ -32,6 +44,37 @@ body {
 .card-body > h2 {
     font-size: 1.25em;
     font-weight: 700;
+}
+
+.rating {
+    display: inline-block;
+    margin-top: 10%;
+}
+
+.desc {
+    margin-top: 10%;
+}
+
+.streaming {
+    margin-top: 10%;
+}
+
+.stream-link {
+    color: tomato;
+    text-decoration: underline;
+}
+
+.stream-link > a {
+    color: tomato;
+}
+
+.stream-link:hover {
+    color: black;
+}
+
+.results-title {
+    text-align: center;
+    font-size: 3em;
 }
 
 .good-rating {
