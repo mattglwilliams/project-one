@@ -18,7 +18,6 @@ for (var i = 0; i < allGenreButtons.length; i++) {
     allGenreButtons[i].addEventListener('click', async function () {
         var ids = []
         var btnValue = this.value
-        var btnName = this.name
         var genreApiURL = "https://api.themoviedb.org/3/discover/movie?api_key=2fad5e038a5d373957de8c81a2825905&language=en-UK&include_adult=false&page=" + randomPage + "&with_original_language=en&with_genres=" + btnValue;
 
         var data = await fetch(genreApiURL)
@@ -29,14 +28,10 @@ for (var i = 0; i < allGenreButtons.length; i++) {
             })
         console.log(data.results);
         for (var i = 0; i < data.results.length; i++) {
+            moviesContainer.textContent = ""
             var movieId = data.results[i].id
             ids.push(movieId)
         }
-        // resultsTitleContainer.innerHTML = " "
-        // var resultsTitle = document.createElement('p')
-        // resultsTitle.setAttribute("class", "results-title")
-        // resultsTitle.textContent = "Showing results for " + btnName
-        // resultsTitleContainer.appendChild(resultsTitle)
         genreShuffledArr(ids);
         console.log(ids);
         getMovieResultOne(ids)
@@ -100,18 +95,21 @@ var getMovieResultOne = function (movieIds) {
                 var streamLink = document.createElement('a')
                 streamLink.setAttribute("href", data.streamingInfo.netflix.us.link)
                 streamLink.setAttribute("class", "stream-link")
+                streamLink.setAttribute("target", "_blank");
                 streamLink.textContent = "Stream on Netflix"
                 firstCardStreamingInfo.appendChild(streamLink)
             } else if (data.streamingInfo.disney) {
                 var streamLink = document.createElement('a')
                 streamLink.setAttribute("href", data.streamingInfo.disney.us.link)
                 streamLink.setAttribute("class", "stream-link")
+                streamLink.setAttribute("target", "_blank");
                 streamLink.textContent = "Stream on Disney+"
                 firstCardStreamingInfo.appendChild(streamLink)
             } else if (data.streamingInfo.prime) {
                 var streamLink = document.createElement('a')
                 streamLink.setAttribute("href", data.streamingInfo.prime.us.link)
                 streamLink.setAttribute("class", "stream-link")
+                streamLink.setAttribute("target", "_blank");
                 streamLink.textContent = "Stream on Prime"
                 firstCardStreamingInfo.appendChild(streamLink)
             } else {
@@ -175,18 +173,21 @@ var getMovieResultTwo = function (movieIds) {
                 var streamLink = document.createElement('a')
                 streamLink.setAttribute("href", data.streamingInfo.netflix.us.link)
                 streamLink.setAttribute("class", "stream-link")
+                streamLink.setAttribute("target", "_blank");
                 streamLink.textContent = "Stream on Netflix"
                 secondCardStreamingInfo.appendChild(streamLink)
             } else if (data.streamingInfo.disney) {
                 var streamLink = document.createElement('a')
                 streamLink.setAttribute("href", data.streamingInfo.disney.us.link)
                 streamLink.setAttribute("class", "stream-link")
+                streamLink.setAttribute("target", "_blank");
                 streamLink.textContent = "Stream on Disney+"
                 secondCardStreamingInfo.appendChild(streamLink)
             } else if (data.streamingInfo.prime) {
                 var streamLink = document.createElement('a')
                 streamLink.setAttribute("href", data.streamingInfo.prime.us.link)
                 streamLink.setAttribute("class", "stream-link")
+                streamLink.setAttribute("target", "_blank");
                 streamLink.textContent = "Stream on Prime"
                 secondCardStreamingInfo.appendChild(streamLink)
             } else {
@@ -250,18 +251,21 @@ var getMovieResultThree = function (movieIds) {
                 var streamLink = document.createElement('a')
                 streamLink.setAttribute("href", data.streamingInfo.netflix.us.link)
                 streamLink.setAttribute("class", "stream-link")
+                streamLink.setAttribute("target", "_blank");
                 streamLink.textContent = "Stream on Netflix"
                 thirdCardStreamingInfo.appendChild(streamLink)
             } else if (data.streamingInfo.disney) {
                 var streamLink = document.createElement('a')
                 streamLink.setAttribute("href", data.streamingInfo.disney.us.link)
                 streamLink.setAttribute("class", "stream-link")
+                streamLink.setAttribute("target", "_blank");
                 streamLink.textContent = "Stream on Disney+"
                 thirdCardStreamingInfo.appendChild(streamLink)
             } else if (data.streamingInfo.prime) {
                 var streamLink = document.createElement('a')
                 streamLink.setAttribute("href", data.streamingInfo.prime.us.link)
                 streamLink.setAttribute("class", "stream-link")
+                streamLink.setAttribute("target", "_blank");
                 streamLink.textContent = "Stream on Prime"
                 thirdCardStreamingInfo.appendChild(streamLink)
             } else {
@@ -325,18 +329,21 @@ var getMovieResultFour = function (movieIds) {
                 var streamLink = document.createElement('a')
                 streamLink.setAttribute("href", data.streamingInfo.netflix.us.link)
                 streamLink.setAttribute("class", "stream-link")
+                streamLink.setAttribute("target", "_blank");
                 streamLink.textContent = "Stream on Netflix"
                 forthCardStreamingInfo.appendChild(streamLink)
             } else if (data.streamingInfo.disney) {
                 var streamLink = document.createElement('a')
                 streamLink.setAttribute("href", data.streamingInfo.disney.us.link)
                 streamLink.setAttribute("class", "stream-link")
+                streamLink.setAttribute("target", "_blank");
                 streamLink.textContent = "Stream on Disney+"
                 forthCardStreamingInfo.appendChild(streamLink)
             } else if (data.streamingInfo.prime) {
                 var streamLink = document.createElement('a')
                 streamLink.setAttribute("href", data.streamingInfo.prime.us.link)
                 streamLink.setAttribute("class", "stream-link")
+                streamLink.setAttribute("target", "_blank");
                 streamLink.textContent = "Stream on Prime"
                 forthCardStreamingInfo.appendChild(streamLink)
             } else {
@@ -400,18 +407,21 @@ var getMovieResultFive = function (movieIds) {
                 var streamLink = document.createElement('a')
                 streamLink.setAttribute("href", data.streamingInfo.netflix.us.link)
                 streamLink.setAttribute("class", "stream-link")
+                streamLink.setAttribute("target", "_blank");
                 streamLink.textContent = "Stream on Netflix"
                 fifthCardStreamingInfo.appendChild(streamLink)
             } else if (data.streamingInfo.disney) {
                 var streamLink = document.createElement('a')
                 streamLink.setAttribute("href", data.streamingInfo.disney.us.link)
                 streamLink.setAttribute("class", "stream-link")
+                streamLink.setAttribute("target", "_blank");
                 streamLink.textContent = "Stream on Disney+"
                 fifthCardStreamingInfo.appendChild(streamLink)
             } else if (data.streamingInfo.prime) {
                 var streamLink = document.createElement('a')
                 streamLink.setAttribute("href", data.streamingInfo.prime.us.link)
                 streamLink.setAttribute("class", "stream-link")
+                streamLink.setAttribute("target", "_blank");
                 streamLink.textContent = "Stream on Prime"
                 fifthCardStreamingInfo.appendChild(streamLink)
             } else {
@@ -421,29 +431,3 @@ var getMovieResultFive = function (movieIds) {
             // renderResultsHistory(data)
         })
 }
-
-// function renderResultsHistory(data) {
-//     for (var i = 0; i < movies.length; i++) {
-//         var movie = movies[i]
-//         var movieText = document.createElement('p')
-//         movieText.textContent = movie;
-//         resultsHistory.appendChild(movieText)
-//     }
-// }
-
-// function init () {
-//     var storedMovies = JSON.parse(localStorage.getItem("movieName"));
-
-//     if (storedMovies !== null) {
-//         movies = storedMovies;
-//     }
-
-//     renderResultsHistory();
-// }
-
-
-// function storeResultsHistory (data) {
-//     localStorage.setItem("movieName", JSON.stringify(data.originalTitle));
-// }
-
-// init()
