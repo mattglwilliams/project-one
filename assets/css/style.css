@@ -1,7 +1,15 @@
 .indexMovie {
-  background-color: #ffcb69;
+  background-color: rgb(240, 238, 238);
 }
 
 .indexBook {
   background-color: #1a535c;
 }
+
+/* .indexBook:hover {
+  background-color: #28656e;
+}
+
+.indexMovie:hover {
+  background-color: rgb(221, 219, 219);
+} */
