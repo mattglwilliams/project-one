@@ -1,468 +1,277 @@
-var actionBtn = document.querySelector(".action")
-var animationBtn = document.querySelector(".animation")
-var comedyBtn = document.querySelector(".comedy")
-var crimeBtn = document.querySelector(".crime")
-var documentaryBtn = document.querySelector(".documentary")
-var dramaBtn = document.querySelector(".drama")
-var familyBtn = document.querySelector(".family")
-var kidsBtn = document.querySelector(".kids")
-var mysteryBtn = document.querySelector(".mystery")
-var newsBtn = document.querySelector(".news")
-var realityBtn = document.querySelector(".reality")
-var scienceFictionBtn = document.querySelector(".science-fiction")
-var soapBtn = document.querySelector(".soap")
-var talkBtn = document.querySelector(".talk")
-var warBtn = document.querySelector(".war")
-var westernBtn = document.querySelector(".western")
-
-var actionValue = actionBtn.value
-var animationValue = animationBtn.value
-var comedyValue = comedyBtn.value
-var crimeValue = crimeBtn.value
-var documentaryValue = documentaryBtn.value
-var dramaValue = dramaBtn.value
-var familyValue = familyBtn.value
-var kidsValue = kidsBtn.value
-var mysteryValue = mysteryBtn.value
-var newsValue = newsBtn.value
-var realityValue = realityBtn.value
-var scienceFictionValue = scienceFictionBtn.value
-var soapValue = soapBtn.value
-var talkValue = talkBtn.value
-var warValue = warBtn.value
-var westernValue = westernBtn.value
+var allGenreButtons = document.querySelectorAll('button[class^=btn]');
+console.log("Found", allGenreButtons.length, "button which class starts with btn.");
 
 var randomPage = Math.floor(Math.random() * 10)
 
-var actionTVIds = []
-var animationTVIds = []
-var comedyTVIds = []
-var crimeTVIds = []
-var documentaryTVIds = []
-var dramaTVIds = []
-var familyTVIds = []
-var kidsTVIds = []
-var mysteryTVIds = []
-var newsTVIds = []
-var realityTVIds = []
-var scienceFictionTVIds = []
-var soapTVIds = []
-var talkTVIds = []
-var warTVIds = []
-var westernTVIds = []
-
-var actionShuffledArr = function (actionTVIds) {
-    actionTVIds.sort(() => Math.random() - 0.5);
+var genreShuffledArr = function (tvIds) {
+    tvIds.sort(() => Math.random() - 0.5);
 }
 
-var actionData = function () {
+for (var i = 0; i < allGenreButtons.length; i++) {
+    allGenreButtons[i].addEventListener('click', async function () {
+        var ids = []
+        var btnValue = this.value
+        var genreApiURL = "https://api.themoviedb.org/3/discover/tv?api_key=2fad5e038a5d373957de8c81a2825905&language=en-UK&include_adult=false&page=" + randomPage + "&with_original_language=en&with_genres=" + btnValue;
 
-    var actionApiURL = "https://api.themoviedb.org/3/discover/tv?api_key=2fad5e038a5d373957de8c81a2825905&language=en-UK&include_adult=false&page=" + randomPage + "&with_original_language=en&with_genres=" + actionValue;
+        var data = await fetch(genreApiURL)
+            .then(function (response) {
+                if (response.ok) {
+                    return response.json()
+                }
+            })
+        console.log(data.results);
+        for (var i = 0; i < data.results.length; i++) {
+            var tvId = data.results[i].id
+            ids.push(tvId)
+        }
+        genreShuffledArr(ids);
+        console.log(ids);
+        getTvResultOne(ids)
+        getTvResultTwo(ids)
+        getTvResultThree(ids)
+        getTvResultFour(ids)
+        getTvResultFive(ids)
+    });
+}
 
-    fetch(actionApiURL)
+var firstCard = document.querySelector(".first-card")
+var secondCard = document.querySelector(".second-card")
+var thirdCard = document.querySelector(".third-card")
+var forthCard = document.querySelector(".forth-card")
+var fifthCard = document.querySelector(".fifth-card")
+var firstImage = document.querySelector(".image-one")
+var secondImage = document.querySelector(".image-two")
+var thirdImage = document.querySelector(".image-three")
+var forthImage = document.querySelector(".image-four")
+var fifthImage = document.querySelector(".image-five")
+var firstTitle = document.querySelector(".first-card-title")
+var secondTitle = document.querySelector(".second-card-title")
+var thirdTitle = document.querySelector(".third-card-title")
+var forthTitle = document.querySelector(".forth-card-title")
+var fifthTitle = document.querySelector(".fifth-card-title")
+var firstDesc = document.querySelector(".first-card-desc")
+var secondDesc = document.querySelector(".second-card-desc")
+var thirdDesc = document.querySelector(".third-card-desc")
+var forthDesc = document.querySelector(".forth-card-desc")
+var fifthDesc = document.querySelector(".fifth-card-desc")
+var firstRating = document.querySelector(".first-card-rating")
+var secondRating = document.querySelector(".second-card-rating")
+var thirdRating = document.querySelector(".third-card-rating")
+var forthRating = document.querySelector(".forth-card-rating")
+var fifthRating = document.querySelector(".fifth-card-rating")
+var firstImdbRating = document.querySelector(".first-rating")
+var secondImdbRating = document.querySelector(".second-rating")
+var thirdImdbRating = document.querySelector(".third-rating")
+var forthImdbRating = document.querySelector(".forth-rating")
+var fifthImdbRating = document.querySelector(".fifth-rating")
+var firstStreaming = document.querySelector(".first-streaming-info")
+var secondStreaming = document.querySelector(".second-streaming-info")
+var thirdStreaming = document.querySelector(".third-streaming-info")
+var forthStreaming = document.querySelector(".forth-streaming-info")
+var fifthStreaming = document.querySelector(".fifth-streaming-info")
+
+var getTvResultOne = function (tvIds) {
+    fetch("https://streaming-availability.p.rapidapi.com/get/basic?country=us&tmdb_id=movie%2F" + tvIds[0] + "&output_language=en", {
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-host": "streaming-availability.p.rapidapi.com",
+            "x-rapidapi-key": "fd9a215c8fmsh1b12b778dc43cfdp16b61cjsn3480cfe25268"
+        }
+    })
         .then(function (response) {
-            if (response.ok) {
-                response.json().then(function (data) {
-                    console.log(data);
-                    for (var i = 0; i < data.results.length; i++) {
-                        var movieId = data.results[i].id
-                        actionTVIds.push(movieId)
-                    }
-                    actionShuffledArr(actionTVIds);
-                })
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data);
+            firstCard.setAttribute("class", "card")
+            firstImage.setAttribute("class", "card-img-top");
+            firstImage.setAttribute("src", data.posterURLs.original);
+            firstTitle.setAttribute("class", "card-title")
+            firstTitle.textContent = data.originalTitle;
+            firstDesc.setAttribute("class", "card-text")
+            firstDesc.textContent = data.overview;
+            firstRating.setAttribute("class", "card-text")
+            firstRating.textContent = "iMDB Rating: "
+            firstImdbRating.textContent = data.imdbRating
+            if (data.imdbRating < 35) {
+                firstImdbRating.setAttribute("class", "bad-rating")
+            } else if (data.imdbRating < 60) {
+                firstImdbRating.setAttribute("class", "ok-rating")
+            } else {
+                firstImdbRating.setAttribute("class", "good-rating")
             }
-        }) 
-        console.log(actionTVIds)
+            firstStreaming.setAttribute("class", "card-text")
+            if (data.streamingInfo.netflix) {
+                firstStreaming.setAttribute("href", streamingInfo.netflix[1].link)
+                firstStreaming.textContent = "Stream it here!"
+            } else {
+                firstStreaming.textContent = "Not on streaming services right now"
+            }
+        })
 }
 
-actionBtn.addEventListener("click", actionData)
-
-var animationShuffledArr = function (animationTVIds) {
-    animationTVIds.sort(() => Math.random() - 0.5);
-}
-
-var animationData = function () {
-
-    var animationApiURL = "https://api.themoviedb.org/3/discover/tv?api_key=2fad5e038a5d373957de8c81a2825905&language=en-UK&include_adult=false&page=" + randomPage + "&with_original_language=en&with_genres=" + animationValue;
-
-    fetch(animationApiURL)
+var getTvResultTwo = function (tvIds) {
+    fetch("https://streaming-availability.p.rapidapi.com/get/basic?country=us&tmdb_id=movie%2F" + tvIds[1] + "&output_language=en", {
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-host": "streaming-availability.p.rapidapi.com",
+            "x-rapidapi-key": "fd9a215c8fmsh1b12b778dc43cfdp16b61cjsn3480cfe25268"
+        }
+    })
         .then(function (response) {
-            if (response.ok) {
-                response.json().then(function (data) {
-                    console.log(data);
-                    for (var i = 0; i < data.results.length; i++) {
-                        var movieId = data.results[i].id
-                        animationTVIds.push(movieId)
-                    }
-                    animationShuffledArr(animationTVIds);
-                })
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data);
+            secondCard.setAttribute("class", "card")
+            secondImage.setAttribute("class", "card-img-top");
+            secondImage.setAttribute("src", data.posterURLs.original);
+            secondTitle.setAttribute("class", "card-title")
+            secondTitle.textContent = data.originalTitle;
+            secondDesc.setAttribute("class", "card-text")
+            secondDesc.textContent = data.overview;
+            secondRating.setAttribute("class", "card-text")
+            secondRating.textContent = "iMDB Rating: "
+            secondImdbRating.textContent = data.imdbRating
+            if (data.imdbRating < 35) {
+                secondImdbRating.setAttribute("class", "bad-rating")
+            } else if (data.imdbRating < 60) {
+                secondImdbRating.setAttribute("class", "ok-rating")
+            } else {
+                secondImdbRating.setAttribute("class", "good-rating")
             }
-        }) 
-        console.log(animationTVIds)
+            secondStreaming.setAttribute("class", "card-text")
+            if (data.streamingInfo.netflix) {
+                secondStreaming.setAttribute("href", streamingInfo.netflix[1].link)
+                secondStreaming.textContent = "Stream it here!"
+            } else if (data.streamingInfo.disney) {
+                    secondStreaming.setAttribute("href", streamingInfo.disney[1].link)
+                    secondStreaming.textContent = "Stream it here!"
+            } else if (data.streamingInfo.prime) {
+                secondStreaming.setAttribute("href", streamingInfo.prime[1].link)
+                secondStreaming.textContent = "Stream it here!"
+            } else {
+                secondStreaming.textContent = "Not on streaming services right now"
+            }
+        })
 }
 
-animationBtn.addEventListener("click", animationData)
-
-var comedyShuffledArr = function (comedyTVIds) {
-    comedyTVIds.sort(() => Math.random() - 0.5);
-}
-
-var comedyData = function () {
-
-    var comedyApiURL = "https://api.themoviedb.org/3/discover/tv?api_key=2fad5e038a5d373957de8c81a2825905&language=en-UK&include_adult=false&page=" + randomPage + "&with_original_language=en&with_genres=" + comedyValue;
-
-    fetch(comedyApiURL)
+var getTvResultThree = function (tvIds) {
+    fetch("https://streaming-availability.p.rapidapi.com/get/basic?country=us&tmdb_id=movie%2F" + tvIds[2] + "&output_language=en", {
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-host": "streaming-availability.p.rapidapi.com",
+            "x-rapidapi-key": "fd9a215c8fmsh1b12b778dc43cfdp16b61cjsn3480cfe25268"
+        }
+    })
         .then(function (response) {
-            if (response.ok) {
-                response.json().then(function (data) {
-                    console.log(data);
-                    for (var i = 0; i < data.results.length; i++) {
-                        var movieId = data.results[i].id
-                        comedyTVIds.push(movieId)
-                    }
-                    comedyShuffledArr(comedyTVIds);
-                })
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data);
+            thirdCard.setAttribute("class", "card")
+            thirdImage.setAttribute("class", "card-img-top");
+            thirdImage.setAttribute("src", data.posterURLs.original);
+            thirdTitle.setAttribute("class", "card-title")
+            thirdTitle.textContent = data.originalTitle;
+            thirdDesc.setAttribute("class", "card-text")
+            thirdDesc.textContent = data.overview;
+            thirdRating.setAttribute("class", "card-text")
+            thirdRating.textContent = "iMDB Rating: "
+            thirdImdbRating.textContent = data.imdbRating
+            if (data.imdbRating < 35) {
+                thirdImdbRating.setAttribute("class", "bad-rating")
+            } else if (data.imdbRating < 60) {
+                thirdImdbRating.setAttribute("class", "ok-rating")
+            } else {
+                thirdImdbRating.setAttribute("class", "good-rating")
             }
-        }) 
-        console.log(comedyTVIds)
+            thirdStreaming.setAttribute("class", "card-text")
+            if (data.streamingInfo.netflix) {
+                thirdStreaming.setAttribute("href", streamingInfo.netflix[1].link)
+                thirdStreaming.textContent = "Stream it here!"
+            } else {
+                thirdStreaming.textContent = "Not on streaming services right now"
+            }
+        })
 }
 
-comedyBtn.addEventListener("click", comedyData)
-
-var crimeShuffledArr = function (crimeTVIds) {
-    crimeTVIds.sort(() => Math.random() - 0.5);
-}
-
-var crimeData = function () {
-
-    var crimeApiURL = "https://api.themoviedb.org/3/discover/tv?api_key=2fad5e038a5d373957de8c81a2825905&language=en-UK&include_adult=false&page=" + randomPage + "&with_original_language=en&with_genres=" + crimeValue;
-
-    fetch(crimeApiURL)
+var getTvResultFour = function (tvIds) {
+    fetch("https://streaming-availability.p.rapidapi.com/get/basic?country=us&tmdb_id=movie%2F" + tvIds[3] + "&output_language=en", {
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-host": "streaming-availability.p.rapidapi.com",
+            "x-rapidapi-key": "fd9a215c8fmsh1b12b778dc43cfdp16b61cjsn3480cfe25268"
+        }
+    })
         .then(function (response) {
-            if (response.ok) {
-                response.json().then(function (data) {
-                    console.log(data);
-                    for (var i = 0; i < data.results.length; i++) {
-                        var movieId = data.results[i].id
-                        crimeTVIds.push(movieId)
-                    }
-                    crimeShuffledArr(crimeTVIds);
-                })
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data);
+            forthCard.setAttribute("class", "card")
+            forthImage.setAttribute("class", "card-img-top");
+            forthImage.setAttribute("src", data.posterURLs.original);
+            forthTitle.setAttribute("class", "card-title")
+            forthTitle.textContent = data.originalTitle;
+            forthDesc.setAttribute("class", "card-text")
+            forthDesc.textContent = data.overview;
+            forthRating.setAttribute("class", "card-text")
+            forthRating.textContent = "iMDB Rating: "
+            forthImdbRating.textContent = data.imdbRating
+            if (data.imdbRating < 35) {
+                forthImdbRating.setAttribute("class", "bad-rating")
+            } else if (data.imdbRating < 60) {
+                forthImdbRating.setAttribute("class", "ok-rating")
+            } else {
+                forthImdbRating.setAttribute("class", "good-rating")
             }
-        }) 
-        console.log(crimeTVIds)
+            forthStreaming.setAttribute("class", "card-text")
+            if (data.streamingInfo.netflix) {
+                forthStreaming.setAttribute("href", streamingInfo.netflix[1].link)
+                forthStreaming.textContent = "Stream it here!"
+            } else {
+                forthStreaming.textContent = "Not on streaming services right now"
+            }
+        })
 }
 
-crimeBtn.addEventListener("click", crimeData)
-
-var documentaryShuffledArr = function (documentaryTVIds) {
-    documentaryTVIds.sort(() => Math.random() - 0.5);
-}
-
-var documentaryData = function () {
-
-    var documentaryApiURL = "https://api.themoviedb.org/3/discover/tv?api_key=2fad5e038a5d373957de8c81a2825905&language=en-UK&include_adult=false&page=" + randomPage + "&with_original_language=en&with_genres=" + documentaryValue;
-
-    fetch(documentaryApiURL)
+var getTvResultFive = function (tvIds) {
+    fetch("https://streaming-availability.p.rapidapi.com/get/basic?country=us&tmdb_id=movie%2F" + tvIds[4] + "&output_language=en", {
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-host": "streaming-availability.p.rapidapi.com",
+            "x-rapidapi-key": "fd9a215c8fmsh1b12b778dc43cfdp16b61cjsn3480cfe25268"
+        }
+    })
         .then(function (response) {
-            if (response.ok) {
-                response.json().then(function (data) {
-                    console.log(data);
-                    for (var i = 0; i < data.results.length; i++) {
-                        var movieId = data.results[i].id
-                        documentaryTVIds.push(movieId)
-                    }
-                    documentaryShuffledArr(documentaryTVIds);
-                })
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data);
+            fifthCard.setAttribute("class", "card")
+            fifthImage.setAttribute("class", "card-img-top");
+            fifthImage.setAttribute("src", data.posterURLs.original);
+            fifthTitle.setAttribute("class", "card-title")
+            fifthTitle.textContent = data.originalTitle;
+            fifthDesc.setAttribute("class", "card-text")
+            fifthDesc.textContent = data.overview;
+            fifthRating.setAttribute("class", "card-text")
+            fifthRating.textContent = "iMDB Rating: "
+            fifthImdbRating.textContent = data.imdbRating
+            if (data.imdbRating < 35) {
+                fifthImdbRating.setAttribute("class", "bad-rating")
+            } else if (data.imdbRating < 60) {
+                fifthImdbRating.setAttribute("class", "ok-rating")
+            } else {
+                fifthImdbRating.setAttribute("class", "good-rating")
             }
-        }) 
-        console.log(documentaryTVIds)
-}
-
-documentaryBtn.addEventListener("click", documentaryData)
-
-var dramaShuffledArr = function (dramaTVIds) {
-    dramaTVIds.sort(() => Math.random() - 0.5);
-}
-
-var dramaData = function () {
-
-    var dramaApiURL = "https://api.themoviedb.org/3/discover/tv?api_key=2fad5e038a5d373957de8c81a2825905&language=en-UK&include_adult=false&page=" + randomPage + "&with_original_language=en&with_genres=" + dramaValue;
-
-    fetch(dramaApiURL)
-        .then(function (response) {
-            if (response.ok) {
-                response.json().then(function (data) {
-                    console.log(data);
-                    for (var i = 0; i < data.results.length; i++) {
-                        var movieId = data.results[i].id
-                        dramaTVIds.push(movieId)
-                    }
-                    dramaShuffledArr(dramaTVIds);
-                })
+            fifthStreaming.setAttribute("class", "card-text")
+            if (data.streamingInfo.netflix) {
+                fifthStreaming.setAttribute("href", streamingInfo.netflix[1].link)
+                fifthStreaming.textContent = "Stream it here!"
+            } else {
+                fifthStreaming.textContent = "Not on streaming services right now"
             }
-        }) 
-        console.log(dramaTVIds)
+        })
 }
-
-dramaBtn.addEventListener("click", dramaData)
-
-var familyShuffledArr = function (familyTVIds) {
-    familyTVIds.sort(() => Math.random() - 0.5);
-}
-
-var familyData = function () {
-
-    var familyApiURL = "https://api.themoviedb.org/3/discover/tv?api_key=2fad5e038a5d373957de8c81a2825905&language=en-UK&include_adult=false&page=" + randomPage + "&with_original_language=en&with_genres=" + familyValue;
-
-    fetch(familyApiURL)
-        .then(function (response) {
-            if (response.ok) {
-                response.json().then(function (data) {
-                    console.log(data);
-                    for (var i = 0; i < data.results.length; i++) {
-                        var movieId = data.results[i].id
-                        familyTVIds.push(movieId)
-                    }
-                    familyShuffledArr(familyTVIds);
-                })
-            }
-        }) 
-        console.log(familyTVIds)
-}
-
-familyBtn.addEventListener("click", familyData)
-
-var kidsShuffledArr = function (kidsTVIds) {
-    kidsTVIds.sort(() => Math.random() - 0.5);
-}
-
-var kidsData = function () {
-
-    var kidsApiURL = "https://api.themoviedb.org/3/discover/tv?api_key=2fad5e038a5d373957de8c81a2825905&language=en-UK&include_adult=false&page=" + randomPage + "&with_original_language=en&with_genres=" + kidsValue;
-
-    fetch(kidsApiURL)
-        .then(function (response) {
-            if (response.ok) {
-                response.json().then(function (data) {
-                    console.log(data);
-                    for (var i = 0; i < data.results.length; i++) {
-                        var movieId = data.results[i].id
-                        kidsTVIds.push(movieId)
-                    }
-                    kidsShuffledArr(kidsTVIds);
-                })
-            }
-        }) 
-        console.log(kidsTVIds)
-}
-
-kidsBtn.addEventListener("click", kidsData)
-
-var mysteryShuffledArr = function (mysteryTVIds) {
-    mysteryTVIds.sort(() => Math.random() - 0.5);
-}
-
-var mysteryData = function () {
-
-    var mysteryApiURL = "https://api.themoviedb.org/3/discover/tv?api_key=2fad5e038a5d373957de8c81a2825905&language=en-UK&include_adult=false&page=" + randomPage + "&with_original_language=en&with_genres=" + mysteryValue;
-
-    fetch(mysteryApiURL)
-        .then(function (response) {
-            if (response.ok) {
-                response.json().then(function (data) {
-                    console.log(data);
-                    for (var i = 0; i < data.results.length; i++) {
-                        var movieId = data.results[i].id
-                        mysteryTVIds.push(movieId)
-                    }
-                    mysteryShuffledArr(mysteryTVIds);
-                })
-            }
-        }) 
-        console.log(mysteryTVIds)
-}
-
-mysteryBtn.addEventListener("click", mysteryData)
-
-var newsShuffledArr = function (newsTVIds) {
-    newsTVIds.sort(() => Math.random() - 0.5);
-}
-
-var newsData = function () {
-
-    var newsApiURL = "https://api.themoviedb.org/3/discover/tv?api_key=2fad5e038a5d373957de8c81a2825905&language=en-UK&include_adult=false&page=" + randomPage + "&with_original_language=en&with_genres=" + newsValue;
-
-    fetch(newsApiURL)
-        .then(function (response) {
-            if (response.ok) {
-                response.json().then(function (data) {
-                    console.log(data);
-                    for (var i = 0; i < data.results.length; i++) {
-                        var movieId = data.results[i].id
-                        newsTVIds.push(movieId)
-                    }
-                    newsShuffledArr(newsTVIds);
-                })
-            }
-        }) 
-        console.log(newsTVIds)
-}
-
-newsBtn.addEventListener("click", newsData)
-
-var realityShuffledArr = function (realityTVIds) {
-    realityTVIds.sort(() => Math.random() - 0.5);
-}
-
-var realityData = function () {
-
-    var realityApiURL = "https://api.themoviedb.org/3/discover/tv?api_key=2fad5e038a5d373957de8c81a2825905&language=en-UK&include_adult=false&page=" + randomPage + "&with_original_language=en&with_genres=" + realityValue;
-
-    fetch(realityApiURL)
-        .then(function (response) {
-            if (response.ok) {
-                response.json().then(function (data) {
-                    console.log(data);
-                    for (var i = 0; i < data.results.length; i++) {
-                        var movieId = data.results[i].id
-                        realityTVIds.push(movieId)
-                    }
-                    realityShuffledArr(realityTVIds);
-                })
-            }
-        }) 
-        console.log(realityTVIds)
-}
-
-realityBtn.addEventListener("click", realityData)
-
-var scienceFictionShuffledArr = function (scienceFictionTVIds) {
-    scienceFictionTVIds.sort(() => Math.random() - 0.5);
-}
-
-var scienceFictionData = function () {
-
-    var scienceFictionApiURL = "https://api.themoviedb.org/3/discover/tv?api_key=2fad5e038a5d373957de8c81a2825905&language=en-UK&include_adult=false&page=" + randomPage + "&with_original_language=en&with_genres=" + scienceFictionValue;
-
-    fetch(scienceFictionApiURL)
-        .then(function (response) {
-            if (response.ok) {
-                response.json().then(function (data) {
-                    console.log(data);
-                    for (var i = 0; i < data.results.length; i++) {
-                        var movieId = data.results[i].id
-                        scienceFictionTVIds.push(movieId)
-                    }
-                    scienceFictionShuffledArr(scienceFictionTVIds);
-                })
-            }
-        }) 
-        console.log(scienceFictionTVIds)
-}
-
-scienceFictionBtn.addEventListener("click", scienceFictionData)
-
-var soapShuffledArr = function (soapTVIds) {
-    soapTVIds.sort(() => Math.random() - 0.5);
-}
-
-var soapData = function () {
-
-    var soapApiURL = "https://api.themoviedb.org/3/discover/tv?api_key=2fad5e038a5d373957de8c81a2825905&language=en-UK&include_adult=false&page=" + randomPage + "&with_original_language=en&with_genres=" + soapValue;
-
-    fetch(soapApiURL)
-        .then(function (response) {
-            if (response.ok) {
-                response.json().then(function (data) {
-                    console.log(data);
-                    for (var i = 0; i < data.results.length; i++) {
-                        var movieId = data.results[i].id
-                        soapTVIds.push(movieId)
-                    }
-                    soapShuffledArr(soapTVIds);
-                })
-            }
-        }) 
-        console.log(soapTVIds)
-}
-
-soapBtn.addEventListener("click", soapData)
-
-var talkShuffledArr = function (talkTVIds) {
-    talkTVIds.sort(() => Math.random() - 0.5);
-}
-
-var talkData = function () {
-
-    var talkApiURL = "https://api.themoviedb.org/3/discover/tv?api_key=2fad5e038a5d373957de8c81a2825905&language=en-UK&include_adult=false&page=" + randomPage + "&with_original_language=en&with_genres=" + talkValue;
-
-    fetch(talkApiURL)
-        .then(function (response) {
-            if (response.ok) {
-                response.json().then(function (data) {
-                    console.log(data);
-                    for (var i = 0; i < data.results.length; i++) {
-                        var movieId = data.results[i].id
-                        talkTVIds.push(movieId)
-                    }
-                    talkShuffledArr(talkTVIds);
-                })
-            }
-        }) 
-        console.log(talkTVIds)
-}
-
-talkBtn.addEventListener("click", talkData)
-
-var warShuffledArr = function (warTVIds) {
-    warTVIds.sort(() => Math.random() - 0.5);
-}
-
-var warData = function () {
-
-    var warApiURL = "https://api.themoviedb.org/3/discover/tv?api_key=2fad5e038a5d373957de8c81a2825905&language=en-UK&include_adult=false&page=" + randomPage + "&with_original_language=en&with_genres=" + warValue;
-
-    fetch(warApiURL)
-        .then(function (response) {
-            if (response.ok) {
-                response.json().then(function (data) {
-                    console.log(data);
-                    for (var i = 0; i < data.results.length; i++) {
-                        var movieId = data.results[i].id
-                        warTVIds.push(movieId)
-                    }
-                    warShuffledArr(warTVIds);
-                })
-            }
-        }) 
-        console.log(warTVIds)
-}
-
-warBtn.addEventListener("click", warData)
-
-var westernShuffledArr = function (westernTVIds) {
-    westernTVIds.sort(() => Math.random() - 0.5);
-}
-
-var westernData = function () {
-
-    var westernApiURL = "https://api.themoviedb.org/3/discover/tv?api_key=2fad5e038a5d373957de8c81a2825905&language=en-UK&include_adult=false&page=" + randomPage + "&with_original_language=en&with_genres=" + westernValue;
-
-    fetch(westernApiURL)
-        .then(function (response) {
-            if (response.ok) {
-                response.json().then(function (data) {
-                    console.log(data);
-                    for (var i = 0; i < data.results.length; i++) {
-                        var movieId = data.results[i].id
-                        westernTVIds.push(movieId)
-                    }
-                    westernShuffledArr(westernTVIds);
-                })
-            }
-        }) 
-        console.log(westernTVIds)
-}
-
-westernBtn.addEventListener("click", westernData)

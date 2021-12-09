@@ -13,7 +13,16 @@ body {
     color: red;
 }
 
+.btn > a{
+    color: red;
+}
+
 .btn:hover {
+    background-color: rgb(32, 32, 32);
+    color: red;
+}
+
+.btn:focus {
     background-color: rgb(32, 32, 32);
     color: red;
 }
@@ -32,6 +41,32 @@ body {
 .card-body > h2 {
     font-size: 1.25em;
     font-weight: 700;
+}
+
+.rating {
+    display: inline-block;
+    margin-top: 10%;
+}
+
+.desc {
+    margin-top: 10%;
+}
+
+.streaming {
+    margin-top: 10%;
+}
+
+.stream-link {
+    color: rgb(180, 33, 33);
+    text-decoration: underline;
+}
+
+.stream-link > a {
+    color: rgb(180, 33, 33);
+}
+
+.stream-link:hover {
+    color: black;
 }
 
 .good-rating {
