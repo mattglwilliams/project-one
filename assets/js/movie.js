@@ -1,3 +1,6 @@
+var resultsContainer = document.querySelector(".results-container")
+var moviesContainer = document.querySelector(".movies-container")
+
 var allGenreButtons = document.querySelectorAll('button[class^=btn]');
 console.log("Found", allGenreButtons.length, "button which class starts with btn.");
 
@@ -34,32 +37,6 @@ for (var i = 0; i < allGenreButtons.length; i++) {
     });
 }
 
-var firstTitle = document.querySelector(".movie-title-one")
-var secondTitle = document.querySelector(".movie-title-two")
-var thirdTitle = document.querySelector(".movie-title-three")
-var forthTitle = document.querySelector(".movie-title-four")
-var fifthTitle = document.querySelector(".movie-title-five")
-var firstImage = document.querySelector(".image-one")
-var secondImage = document.querySelector(".image-two")
-var thirdImage = document.querySelector(".image-three")
-var forthImage = document.querySelector(".image-four")
-var fifthImage = document.querySelector(".image-five")
-var firstDesc = document.querySelector(".desc-one")
-var secondDesc = document.querySelector(".desc-two")
-var thirdDesc = document.querySelector(".desc-three")
-var forthDesc = document.querySelector(".desc-four")
-var fifthDesc = document.querySelector(".desc-five")
-var firstRating = document.querySelector(".first-rating")
-var secondRating = document.querySelector(".second-rating")
-var thirdRating = document.querySelector(".third-rating")
-var forthRating = document.querySelector(".forth-rating")
-var fifthRating = document.querySelector(".fifth-rating")
-var firstStreaming = document.querySelector(".first-streaming-info")
-var secondStreaming = document.querySelector(".second-streaming-info")
-var thirdStreaming = document.querySelector(".third-streaming-info")
-var forthStreaming = document.querySelector(".forth-streaming-info")
-var fifthStreaming = document.querySelector(".fifth-streaming-info")
-
 var getMovieResultOne = function (movieIds) {
     fetch("https://streaming-availability.p.rapidapi.com/get/basic?country=us&tmdb_id=movie%2F" + movieIds[0] + "&output_language=en", {
         "method": "GET",
@@ -73,10 +50,63 @@ var getMovieResultOne = function (movieIds) {
         })
         .then(function (data) {
             console.log(data);
-            firstTitle.textContent = data.originalTitle;
-            firstImage.setAttribute("src", data.posterURLs.original);
-            firstDesc.textContent = data.overview;
-            firstRating.textContent = "iMDB Rating: " + data.imdbRating
+            var firstCard = document.createElement('div');
+            firstCard.setAttribute("style", "width: 18rem;");
+            firstCard.setAttribute("class", "card");
+            moviesContainer.appendChild(firstCard)
+            var firstCardImage = document.createElement('img');
+            firstCardImage.setAttribute("class", "card-img-top");
+            firstCardImage.setAttribute("src", data.posterURLs.original);
+            firstCard.appendChild(firstCardImage);
+            var firstCardBody = document.createElement('div');
+            firstCardBody.setAttribute('class', 'card-body');
+            firstCard.appendChild(firstCardBody);
+            var firstCardTitle = document.createElement('h2');
+            firstCardTitle.setAttribute("class", "card-title");
+            firstCardTitle.textContent = data.originalTitle;
+            firstCardBody.appendChild(firstCardTitle);
+            var firstCardDesc = document.createElement('p');
+            firstCardDesc.setAttribute("class", "card-text desc");
+            firstCardDesc.textContent = data.overview;
+            firstCardBody.appendChild(firstCardDesc);
+            var firstCardRating = document.createElement('p')
+            firstCardRating.setAttribute("class", "card-text rating")
+            firstCardRating.textContent = "iMDB Rating: "
+            firstCardBody.appendChild(firstCardRating);
+            var imdbRating = document.createElement('p')
+            imdbRating.textContent = data.imdbRating
+            firstCardBody.appendChild(imdbRating);
+            if (data.imdbRating < 35) {
+                imdbRating.setAttribute("class", "bad-rating")
+            } else if (data.imdbRating < 60) {
+                imdbRating.setAttribute("class", "ok-rating")
+            } else {
+                imdbRating.setAttribute("class", "good-rating")
+            }
+            var firstCardStreamingInfo = document.createElement('p')
+            firstCardStreamingInfo.setAttribute("class", "card-text streaming")
+            firstCardBody.appendChild(firstCardStreamingInfo)
+            if (data.streamingInfo.netflix) {
+                var streamLink = document.createElement('a')
+                streamLink.setAttribute("href", data.streamingInfo.netflix.us.link)
+                streamLink.setAttribute("class", "stream-link")
+                streamLink.textContent = "Stream it here!"
+                firstCardStreamingInfo.appendChild(streamLink)
+            } else if (data.streamingInfo.disney) {
+                var streamLink = document.createElement('a')
+                streamLink.setAttribute("href", data.streamingInfo.disney.us.link)
+                streamLink.setAttribute("class", "stream-link")
+                streamLink.textContent = "Stream it here!"
+                firstCardStreamingInfo.appendChild(streamLink)
+            } else if (data.streamingInfo.prime) {
+                var streamLink = document.createElement('a')
+                streamLink.setAttribute("href", data.streamingInfo.prime.us.link)
+                streamLink.setAttribute("class", "stream-link")
+                streamLink.textContent = "Stream it here!"
+                firstCardStreamingInfo.appendChild(streamLink)
+            } else {
+                firstCardStreamingInfo.textContent = "Not on streaming services right now"
+            }
         })
 }
 
@@ -93,10 +123,63 @@ var getMovieResultTwo = function (movieIds) {
         })
         .then(function (data) {
             console.log(data);
-            secondTitle.textContent = data.originalTitle;
-            secondImage.setAttribute("src", data.posterURLs.original);
-            secondDesc.textContent = data.overview;
-            secondRating.textContent = "iMDB Rating: " + data.imdbRating
+            var secondCard = document.createElement('div');
+            secondCard.setAttribute("style", "width: 18rem;");
+            secondCard.setAttribute("class", "card");
+            moviesContainer.appendChild(secondCard)
+            var secondCardImage = document.createElement('img');
+            secondCardImage.setAttribute("class", "card-img-top");
+            secondCardImage.setAttribute("src", data.posterURLs.original);
+            secondCard.appendChild(secondCardImage);
+            var secondCardBody = document.createElement('div');
+            secondCardBody.setAttribute('class', 'card-body');
+            secondCard.appendChild(secondCardBody);
+            var secondCardTitle = document.createElement('h2');
+            secondCardTitle.setAttribute("class", "card-title");
+            secondCardTitle.textContent = data.originalTitle;
+            secondCardBody.appendChild(secondCardTitle);
+            var secondCardDesc = document.createElement('p');
+            secondCardDesc.setAttribute("class", "card-text desc");
+            secondCardDesc.textContent = data.overview;
+            secondCardBody.appendChild(secondCardDesc);
+            var secondCardRating = document.createElement('p')
+            secondCardRating.setAttribute("class", "card-text rating")
+            secondCardRating.textContent = "iMDB Rating: "
+            secondCardBody.appendChild(secondCardRating);
+            var imdbRating = document.createElement('p')
+            imdbRating.textContent = data.imdbRating
+            secondCardBody.appendChild(imdbRating);
+            if (data.imdbRating < 35) {
+                imdbRating.setAttribute("class", "bad-rating")
+            } else if (data.imdbRating < 60) {
+                imdbRating.setAttribute("class", "ok-rating")
+            } else {
+                imdbRating.setAttribute("class", "good-rating")
+            }
+            var secondCardStreamingInfo = document.createElement('p')
+            secondCardStreamingInfo.setAttribute("class", "card-text streaming")
+            secondCardBody.appendChild(secondCardStreamingInfo)
+            if (data.streamingInfo.netflix) {
+                var streamLink = document.createElement('a')
+                streamLink.setAttribute("href", data.streamingInfo.netflix.us.link)
+                streamLink.setAttribute("class", "stream-link")
+                streamLink.textContent = "Stream it here!"
+                secondCardStreamingInfo.appendChild(streamLink)
+            } else if (data.streamingInfo.disney) {
+                var streamLink = document.createElement('a')
+                streamLink.setAttribute("href", data.streamingInfo.disney.us.link)
+                streamLink.setAttribute("class", "stream-link")
+                streamLink.textContent = "Stream it here!"
+                secondCardStreamingInfo.appendChild(streamLink)
+            } else if (data.streamingInfo.prime) {
+                var streamLink = document.createElement('a')
+                streamLink.setAttribute("href", data.streamingInfo.prime.us.link)
+                streamLink.setAttribute("class", "stream-link")
+                streamLink.textContent = "Stream it here!"
+                secondCardStreamingInfo.appendChild(streamLink)
+            } else {
+                secondCardStreamingInfo.textContent = "Not on streaming services right now"
+            }
         })
 }
 
@@ -113,10 +196,63 @@ var getMovieResultThree = function (movieIds) {
         })
         .then(function (data) {
             console.log(data);
-            thirdTitle.textContent = data.originalTitle;
-            thirdImage.setAttribute("src", data.posterURLs.original);
-            thirdDesc.textContent = data.overview;
-            thirdRating.textContent = "iMDB Rating: " + data.imdbRating
+            var thirdCard = document.createElement('div');
+            thirdCard.setAttribute("style", "width: 18rem;");
+            thirdCard.setAttribute("class", "card");
+            moviesContainer.appendChild(thirdCard)
+            var thirdCardImage = document.createElement('img');
+            thirdCardImage.setAttribute("class", "card-img-top");
+            thirdCardImage.setAttribute("src", data.posterURLs.original);
+            thirdCard.appendChild(thirdCardImage);
+            var thirdCardBody = document.createElement('div');
+            thirdCardBody.setAttribute('class', 'card-body');
+            thirdCard.appendChild(thirdCardBody);
+            var thirdCardTitle = document.createElement('h2');
+            thirdCardTitle.setAttribute("class", "card-title");
+            thirdCardTitle.textContent = data.originalTitle;
+            thirdCardBody.appendChild(thirdCardTitle);
+            var thirdCardDesc = document.createElement('p');
+            thirdCardDesc.setAttribute("class", "card-text desc");
+            thirdCardDesc.textContent = data.overview;
+            thirdCardBody.appendChild(thirdCardDesc);
+            var thirdCardRating = document.createElement('p')
+            thirdCardRating.setAttribute("class", "card-text rating")
+            thirdCardRating.textContent = "iMDB Rating: "
+            thirdCardBody.appendChild(thirdCardRating);
+            var imdbRating = document.createElement('p')
+            imdbRating.textContent = data.imdbRating
+            thirdCardBody.appendChild(imdbRating);
+            if (data.imdbRating < 35) {
+                imdbRating.setAttribute("class", "bad-rating")
+            } else if (data.imdbRating < 60) {
+                imdbRating.setAttribute("class", "ok-rating")
+            } else {
+                imdbRating.setAttribute("class", "good-rating")
+            }
+            var thirdCardStreamingInfo = document.createElement('p')
+            thirdCardStreamingInfo.setAttribute("class", "card-text streaming")
+            thirdCardBody.appendChild(thirdCardStreamingInfo);
+            if (data.streamingInfo.netflix) {
+                var streamLink = document.createElement('a')
+                streamLink.setAttribute("href", data.streamingInfo.netflix.us.link)
+                streamLink.setAttribute("class", "stream-link")
+                streamLink.textContent = "Stream it here!"
+                thirdCardStreamingInfo.appendChild(streamLink)
+            } else if (data.streamingInfo.disney) {
+                var streamLink = document.createElement('a')
+                streamLink.setAttribute("href", data.streamingInfo.disney.us.link)
+                streamLink.setAttribute("class", "stream-link")
+                streamLink.textContent = "Stream it here!"
+                thirdCardStreamingInfo.appendChild(streamLink)
+            } else if (data.streamingInfo.prime) {
+                var streamLink = document.createElement('a')
+                streamLink.setAttribute("href", data.streamingInfo.prime.us.link)
+                streamLink.setAttribute("class", "stream-link")
+                streamLink.textContent = "Stream it here!"
+                thirdCardStreamingInfo.appendChild(streamLink)
+            } else {
+                thirdCardStreamingInfo.textContent = "Not on streaming services right now"
+            }
         })
 }
 
@@ -133,10 +269,63 @@ var getMovieResultFour = function (movieIds) {
         })
         .then(function (data) {
             console.log(data);
-            forthTitle.textContent = data.originalTitle;
-            forthImage.setAttribute("src", data.posterURLs.original);
-            forthDesc.textContent = data.overview;
-            forthRating.textContent = "iMDB Rating: " + data.imdbRating
+            var forthCard = document.createElement('div');
+            forthCard.setAttribute("style", "width: 18rem;");
+            forthCard.setAttribute("class", "card");
+            moviesContainer.appendChild(forthCard)
+            var forthCardImage = document.createElement('img');
+            forthCardImage.setAttribute("class", "card-img-top");
+            forthCardImage.setAttribute("src", data.posterURLs.original);
+            forthCard.appendChild(forthCardImage);
+            var forthCardBody = document.createElement('div');
+            forthCardBody.setAttribute('class', 'card-body');
+            forthCard.appendChild(forthCardBody);
+            var forthCardTitle = document.createElement('h2');
+            forthCardTitle.setAttribute("class", "card-title");
+            forthCardTitle.textContent = data.originalTitle;
+            forthCardBody.appendChild(forthCardTitle);
+            var forthCardDesc = document.createElement('p');
+            forthCardDesc.setAttribute("class", "card-text desc");
+            forthCardDesc.textContent = data.overview;
+            forthCardBody.appendChild(forthCardDesc);
+            var forthCardRating = document.createElement('p')
+            forthCardRating.setAttribute("class", "card-text rating")
+            forthCardRating.textContent = "iMDB Rating: "
+            forthCardBody.appendChild(forthCardRating);
+            var imdbRating = document.createElement('p')
+            imdbRating.textContent = data.imdbRating
+            forthCardBody.appendChild(imdbRating);
+            if (data.imdbRating < 35) {
+                imdbRating.setAttribute("class", "bad-rating")
+            } else if (data.imdbRating < 60) {
+                imdbRating.setAttribute("class", "ok-rating")
+            } else {
+                imdbRating.setAttribute("class", "good-rating")
+            }
+            var forthCardStreamingInfo = document.createElement('p')
+            forthCardStreamingInfo.setAttribute("class", "card-text streaming")
+            forthCardBody.appendChild(forthCardStreamingInfo);
+            if (data.streamingInfo.netflix) {
+                var streamLink = document.createElement('a')
+                streamLink.setAttribute("href", data.streamingInfo.netflix.us.link)
+                streamLink.setAttribute("class", "stream-link")
+                streamLink.textContent = "Stream it here!"
+                forthCardStreamingInfo.appendChild(streamLink)
+            } else if (data.streamingInfo.disney) {
+                var streamLink = document.createElement('a')
+                streamLink.setAttribute("href", data.streamingInfo.disney.us.link)
+                streamLink.setAttribute("class", "stream-link")
+                streamLink.textContent = "Stream it here!"
+                forthCardStreamingInfo.appendChild(streamLink)
+            } else if (data.streamingInfo.prime) {
+                var streamLink = document.createElement('a')
+                streamLink.setAttribute("href", data.streamingInfo.prime.us.link)
+                streamLink.setAttribute("class", "stream-link")
+                streamLink.textContent = "Stream it here!"
+                forthCardStreamingInfo.appendChild(streamLink)
+            } else {
+                forthCardStreamingInfo.textContent = "Not on streaming services right now"
+            }
         })
 }
 
@@ -153,9 +342,62 @@ var getMovieResultFive = function (movieIds) {
         })
         .then(function (data) {
             console.log(data);
-            fifthTitle.textContent = data.originalTitle;
-            fifthImage.setAttribute("src", data.posterURLs.original);
-            fifthDesc.textContent = data.overview;
-            fifthRating.textContent = "iMDB Rating: " + data.imdbRating
+            var fifthCard = document.createElement('div');
+            fifthCard.setAttribute("style", "width: 18rem;");
+            fifthCard.setAttribute("class", "card");
+            moviesContainer.appendChild(fifthCard)
+            var fifthCardImage = document.createElement('img');
+            fifthCardImage.setAttribute("class", "card-img-top");
+            fifthCardImage.setAttribute("src", data.posterURLs.original);
+            fifthCard.appendChild(fifthCardImage);
+            var fifthCardBody = document.createElement('div');
+            fifthCardBody.setAttribute('class', 'card-body');
+            fifthCard.appendChild(fifthCardBody);
+            var fifthCardTitle = document.createElement('h2');
+            fifthCardTitle.setAttribute("class", "card-title");
+            fifthCardTitle.textContent = data.originalTitle;
+            fifthCardBody.appendChild(fifthCardTitle);
+            var fifthCardDesc = document.createElement('p');
+            fifthCardDesc.setAttribute("class", "card-text desc");
+            fifthCardDesc.textContent = data.overview;
+            fifthCardBody.appendChild(fifthCardDesc);
+            var fifthCardRating = document.createElement('p')
+            fifthCardRating.setAttribute("class", "card-text rating")
+            fifthCardRating.textContent = "iMDB Rating: "
+            fifthCardBody.appendChild(fifthCardRating);
+            var imdbRating = document.createElement('p')
+            imdbRating.textContent = data.imdbRating
+            fifthCardBody.appendChild(imdbRating);
+            if (data.imdbRating < 35) {
+                imdbRating.setAttribute("class", "bad-rating")
+            } else if (data.imdbRating < 60) {
+                imdbRating.setAttribute("class", "ok-rating")
+            } else {
+                imdbRating.setAttribute("class", "good-rating")
+            }
+            var fifthCardStreamingInfo = document.createElement('p')
+            fifthCardStreamingInfo.setAttribute("class", "card-text streaming")
+            fifthCardBody.appendChild(fifthCardStreamingInfo)
+            if (data.streamingInfo.netflix) {
+                var streamLink = document.createElement('a')
+                streamLink.setAttribute("href", data.streamingInfo.netflix.us.link)
+                streamLink.setAttribute("class", "stream-link")
+                streamLink.textContent = "Stream it here!"
+                fifthCardStreamingInfo.appendChild(streamLink)
+            } else if (data.streamingInfo.disney) {
+                var streamLink = document.createElement('a')
+                streamLink.setAttribute("href", data.streamingInfo.disney.us.link)
+                streamLink.setAttribute("class", "stream-link")
+                streamLink.textContent = "Stream it here!"
+                fifthCardStreamingInfo.appendChild(streamLink)
+            } else if (data.streamingInfo.prime) {
+                var streamLink = document.createElement('a')
+                streamLink.setAttribute("href", data.streamingInfo.prime.us.link)
+                streamLink.setAttribute("class", "stream-link")
+                streamLink.textContent = "Stream it here!"
+                fifthCardStreamingInfo.appendChild(streamLink)
+            } else {
+                fifthCardStreamingInfo.textContent = "Not on streaming services right now"
+            }
         })
 }
