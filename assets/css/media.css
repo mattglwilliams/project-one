@@ -69,6 +69,11 @@ body {
     color: black;
 }
 
+.results-title {
+    text-align: center;
+    font-size: 3em;
+}
+
 .good-rating {
     display: inline;
     background-color: rgb(77, 151, 58);
