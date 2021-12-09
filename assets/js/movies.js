@@ -1,5 +1,9 @@
 var resultsContainer = document.querySelector(".results-container")
 var moviesContainer = document.querySelector(".movies-container")
+var resultsTitleContainer = document.querySelector(".results-title-container")
+var resultsHistory = document.querySelector(".results-history")
+
+var movies = [];
 
 var allGenreButtons = document.querySelectorAll('button[class^=btn]');
 console.log("Found", allGenreButtons.length, "button which class starts with btn.");
@@ -14,6 +18,7 @@ for (var i = 0; i < allGenreButtons.length; i++) {
     allGenreButtons[i].addEventListener('click', async function () {
         var ids = []
         var btnValue = this.value
+        var btnName = this.name
         var genreApiURL = "https://api.themoviedb.org/3/discover/movie?api_key=2fad5e038a5d373957de8c81a2825905&language=en-UK&include_adult=false&page=" + randomPage + "&with_original_language=en&with_genres=" + btnValue;
 
         var data = await fetch(genreApiURL)
@@ -27,6 +32,11 @@ for (var i = 0; i < allGenreButtons.length; i++) {
             var movieId = data.results[i].id
             ids.push(movieId)
         }
+        // resultsTitleContainer.innerHTML = " "
+        // var resultsTitle = document.createElement('p')
+        // resultsTitle.setAttribute("class", "results-title")
+        // resultsTitle.textContent = "Showing results for " + btnName
+        // resultsTitleContainer.appendChild(resultsTitle)
         genreShuffledArr(ids);
         console.log(ids);
         getMovieResultOne(ids)
@@ -42,7 +52,7 @@ var getMovieResultOne = function (movieIds) {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "streaming-availability.p.rapidapi.com",
-            "x-rapidapi-key": "b47074264amshfad7f61fb6d89e0p10c33bjsn75adba8fcd32"
+            "x-rapidapi-key": "34080ff2a3msh1e7297fd9f6e022p175751jsna9da828fe46e"
         }
     })
         .then(function (response) {
@@ -90,23 +100,25 @@ var getMovieResultOne = function (movieIds) {
                 var streamLink = document.createElement('a')
                 streamLink.setAttribute("href", data.streamingInfo.netflix.us.link)
                 streamLink.setAttribute("class", "stream-link")
-                streamLink.textContent = "Stream it here!"
+                streamLink.textContent = "Stream on Netflix"
                 firstCardStreamingInfo.appendChild(streamLink)
             } else if (data.streamingInfo.disney) {
                 var streamLink = document.createElement('a')
                 streamLink.setAttribute("href", data.streamingInfo.disney.us.link)
                 streamLink.setAttribute("class", "stream-link")
-                streamLink.textContent = "Stream it here!"
+                streamLink.textContent = "Stream on Disney+"
                 firstCardStreamingInfo.appendChild(streamLink)
             } else if (data.streamingInfo.prime) {
                 var streamLink = document.createElement('a')
                 streamLink.setAttribute("href", data.streamingInfo.prime.us.link)
                 streamLink.setAttribute("class", "stream-link")
-                streamLink.textContent = "Stream it here!"
+                streamLink.textContent = "Stream on Prime"
                 firstCardStreamingInfo.appendChild(streamLink)
             } else {
                 firstCardStreamingInfo.textContent = "Not on streaming services right now"
             }
+            // storeResultsHistory(data)
+            // renderResultsHistory(data)
         })
 }
 
@@ -115,7 +127,7 @@ var getMovieResultTwo = function (movieIds) {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "streaming-availability.p.rapidapi.com",
-            "x-rapidapi-key": "b47074264amshfad7f61fb6d89e0p10c33bjsn75adba8fcd32"
+            "x-rapidapi-key": "34080ff2a3msh1e7297fd9f6e022p175751jsna9da828fe46e"
         }
     })
         .then(function (response) {
@@ -163,23 +175,25 @@ var getMovieResultTwo = function (movieIds) {
                 var streamLink = document.createElement('a')
                 streamLink.setAttribute("href", data.streamingInfo.netflix.us.link)
                 streamLink.setAttribute("class", "stream-link")
-                streamLink.textContent = "Stream it here!"
+                streamLink.textContent = "Stream on Netflix"
                 secondCardStreamingInfo.appendChild(streamLink)
             } else if (data.streamingInfo.disney) {
                 var streamLink = document.createElement('a')
                 streamLink.setAttribute("href", data.streamingInfo.disney.us.link)
                 streamLink.setAttribute("class", "stream-link")
-                streamLink.textContent = "Stream it here!"
+                streamLink.textContent = "Stream on Disney+"
                 secondCardStreamingInfo.appendChild(streamLink)
             } else if (data.streamingInfo.prime) {
                 var streamLink = document.createElement('a')
                 streamLink.setAttribute("href", data.streamingInfo.prime.us.link)
                 streamLink.setAttribute("class", "stream-link")
-                streamLink.textContent = "Stream it here!"
+                streamLink.textContent = "Stream on Prime"
                 secondCardStreamingInfo.appendChild(streamLink)
             } else {
                 secondCardStreamingInfo.textContent = "Not on streaming services right now"
             }
+            // storeResultsHistory(data)
+            // renderResultsHistory(data)
         })
 }
 
@@ -188,7 +202,7 @@ var getMovieResultThree = function (movieIds) {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "streaming-availability.p.rapidapi.com",
-            "x-rapidapi-key": "b47074264amshfad7f61fb6d89e0p10c33bjsn75adba8fcd32"
+            "x-rapidapi-key": "34080ff2a3msh1e7297fd9f6e022p175751jsna9da828fe46e"
         }
     })
         .then(function (response) {
@@ -236,23 +250,25 @@ var getMovieResultThree = function (movieIds) {
                 var streamLink = document.createElement('a')
                 streamLink.setAttribute("href", data.streamingInfo.netflix.us.link)
                 streamLink.setAttribute("class", "stream-link")
-                streamLink.textContent = "Stream it here!"
+                streamLink.textContent = "Stream on Netflix"
                 thirdCardStreamingInfo.appendChild(streamLink)
             } else if (data.streamingInfo.disney) {
                 var streamLink = document.createElement('a')
                 streamLink.setAttribute("href", data.streamingInfo.disney.us.link)
                 streamLink.setAttribute("class", "stream-link")
-                streamLink.textContent = "Stream it here!"
+                streamLink.textContent = "Stream on Disney+"
                 thirdCardStreamingInfo.appendChild(streamLink)
             } else if (data.streamingInfo.prime) {
                 var streamLink = document.createElement('a')
                 streamLink.setAttribute("href", data.streamingInfo.prime.us.link)
                 streamLink.setAttribute("class", "stream-link")
-                streamLink.textContent = "Stream it here!"
+                streamLink.textContent = "Stream on Prime"
                 thirdCardStreamingInfo.appendChild(streamLink)
             } else {
                 thirdCardStreamingInfo.textContent = "Not on streaming services right now"
             }
+            // storeResultsHistory(data)
+            // renderResultsHistory(data)
         })
 }
 
@@ -261,7 +277,7 @@ var getMovieResultFour = function (movieIds) {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "streaming-availability.p.rapidapi.com",
-            "x-rapidapi-key": "b47074264amshfad7f61fb6d89e0p10c33bjsn75adba8fcd32"
+            "x-rapidapi-key": "34080ff2a3msh1e7297fd9f6e022p175751jsna9da828fe46e"
         }
     })
         .then(function (response) {
@@ -309,23 +325,25 @@ var getMovieResultFour = function (movieIds) {
                 var streamLink = document.createElement('a')
                 streamLink.setAttribute("href", data.streamingInfo.netflix.us.link)
                 streamLink.setAttribute("class", "stream-link")
-                streamLink.textContent = "Stream it here!"
+                streamLink.textContent = "Stream on Netflix"
                 forthCardStreamingInfo.appendChild(streamLink)
             } else if (data.streamingInfo.disney) {
                 var streamLink = document.createElement('a')
                 streamLink.setAttribute("href", data.streamingInfo.disney.us.link)
                 streamLink.setAttribute("class", "stream-link")
-                streamLink.textContent = "Stream it here!"
+                streamLink.textContent = "Stream on Disney+"
                 forthCardStreamingInfo.appendChild(streamLink)
             } else if (data.streamingInfo.prime) {
                 var streamLink = document.createElement('a')
                 streamLink.setAttribute("href", data.streamingInfo.prime.us.link)
                 streamLink.setAttribute("class", "stream-link")
-                streamLink.textContent = "Stream it here!"
+                streamLink.textContent = "Stream on Prime"
                 forthCardStreamingInfo.appendChild(streamLink)
             } else {
                 forthCardStreamingInfo.textContent = "Not on streaming services right now"
             }
+            // storeResultsHistory(data)
+            // renderResultsHistory(data)
         })
 }
 
@@ -334,7 +352,7 @@ var getMovieResultFive = function (movieIds) {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "streaming-availability.p.rapidapi.com",
-            "x-rapidapi-key": "b47074264amshfad7f61fb6d89e0p10c33bjsn75adba8fcd32"
+            "x-rapidapi-key": "34080ff2a3msh1e7297fd9f6e022p175751jsna9da828fe46e"
         }
     })
         .then(function (response) {
@@ -382,22 +400,50 @@ var getMovieResultFive = function (movieIds) {
                 var streamLink = document.createElement('a')
                 streamLink.setAttribute("href", data.streamingInfo.netflix.us.link)
                 streamLink.setAttribute("class", "stream-link")
-                streamLink.textContent = "Stream it here!"
+                streamLink.textContent = "Stream on Netflix"
                 fifthCardStreamingInfo.appendChild(streamLink)
             } else if (data.streamingInfo.disney) {
                 var streamLink = document.createElement('a')
                 streamLink.setAttribute("href", data.streamingInfo.disney.us.link)
                 streamLink.setAttribute("class", "stream-link")
-                streamLink.textContent = "Stream it here!"
+                streamLink.textContent = "Stream on Disney+"
                 fifthCardStreamingInfo.appendChild(streamLink)
             } else if (data.streamingInfo.prime) {
                 var streamLink = document.createElement('a')
                 streamLink.setAttribute("href", data.streamingInfo.prime.us.link)
                 streamLink.setAttribute("class", "stream-link")
-                streamLink.textContent = "Stream it here!"
+                streamLink.textContent = "Stream on Prime"
                 fifthCardStreamingInfo.appendChild(streamLink)
             } else {
                 fifthCardStreamingInfo.textContent = "Not on streaming services right now"
             }
+            // storeResultsHistory(data)
+            // renderResultsHistory(data)
         })
 }
+
+// function renderResultsHistory(data) {
+//     for (var i = 0; i < movies.length; i++) {
+//         var movie = movies[i]
+//         var movieText = document.createElement('p')
+//         movieText.textContent = movie;
+//         resultsHistory.appendChild(movieText)
+//     }
+// }
+
+// function init () {
+//     var storedMovies = JSON.parse(localStorage.getItem("movieName"));
+
+//     if (storedMovies !== null) {
+//         movies = storedMovies;
+//     }
+
+//     renderResultsHistory();
+// }
+
+
+// function storeResultsHistory (data) {
+//     localStorage.setItem("movieName", JSON.stringify(data.originalTitle));
+// }
+
+// init()
