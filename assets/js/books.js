@@ -29,51 +29,96 @@ for (var i = 0; i < allBookGenreButtons.length; i++) {
     allBookGenreButtons[i].addEventListener('click', async function () {
         
         var btnValue = this.value
-        var bookGenreApiURL = "https://www.googleapis.com/books/v1/volumes?q=subject:" +btnValue+ '&orderBy=newest&startIndex='+randomPage +'&country:GB&language:en&key=AIzaSyA_lIqrTexQ5k7tVp1cuAOHbptlInieZKU';
+        var bookGenreApiURL = "https://www.googleapis.com/books/v1/volumes?q=category:" +btnValue+ '&orderBy=newest&startIndex='+randomPage +'&country:GB&language:en&key=AIzaSyA_lIqrTexQ5k7tVp1cuAOHbptlInieZKU';
     
-        var data = await fetch(bookGenreApiURL)
+        await fetch(bookGenreApiURL)
         .then(function (response) {
           return response.json();
       })
       .then(function (data) {
-          console.log(data)
+          //console.log(data)
           displayBookEl.textContent="";
-          
+      
             for (var i=0;i<=2;i++){
            
             var displayCard = document.createElement('div');
             var bookImage = document.createElement('img');
             var cardBody = document.createElement('div');             
             var bookTitle = document.createElement('a');
-            var bookDescription = document.createElement('p');
+            var bookDescription = document.createElement('p');             
+            var titleLink = document.createElement('div');
+            var titleLinkEl = document.createElement('div')
+            var likeEl = document.createElement('input');
+            var heartEl = document.createElement('i');
+
+            likeEl.setAttribute("type", "checkbox");
+            likeEl.setAttribute("class", "like-btn");
+            
+            heartEl.setAttribute("class", " fa fa-heart");
+
 
             displayCard.setAttribute("class", "card");
-            displayCard.setAttribute("style", "width: 18rem;");
+            displayCard.setAttribute("style", "width: 22rem;");
             bookImage.setAttribute("class", "image-one card-img-top");
             cardBody.setAttribute("class", "card-body");
-            bookTitle.setAttribute("class", "card-title")
-            bookDescription.setAttribute("class","desc-one card-text");
-           
+            bookTitle.setAttribute("class", "card-title")                     
+                
+            bookDescription.setAttribute("class","desc-one card-text reduceDescription");
+                 
             bookTitle.setAttribute("href", data.items[i].volumeInfo.previewLink);
             bookTitle.setAttribute("target", "_blank");             
-            bookImage.setAttribute("src", data.items[i].volumeInfo.imageLinks.smallThumbnail);
-           
+            bookImage.setAttribute("src", data.items[i].volumeInfo.imageLinks.smallThumbnail);          
+            
             bookTitle.textContent = (data.items[i].volumeInfo.title);           
             bookDescription.textContent = (data.items[i].volumeInfo.description);
-
+                  
+            titleLink.append(titleLinkEl);
+           
+            likeEl.append(heartEl);
+            cardBody.append(likeEl);
             cardBody.append(bookTitle);
+            cardBody.append(titleLink);
+                         
             cardBody.append(bookDescription);
             displayCard.append(bookImage);
             displayCard.append(cardBody);
-            displayBookEl.append(displayCard);     
-        
+            
+            displayBookEl.append(displayCard); 
+                                  
             randomPage = Math.floor(Math.random() * 29)
+                   
        
+          }
+          var displaySavedEl = document.querySelector(".displaySaved");
+          var checkboxEl = document.querySelector("input[name=checkbox]");
+          
+          checkboxEl.addEventListener('change', function(){
+            
+              if (this.checked){
+                displaySavedEl.append(displayCard);
+            } else {
+              checkboxEl.checked = false;
             }
-      })
+          
+          })
 
-       
+          
+      })
+    
     });
   }
   
+
+  // $(document).ready(function(){
+  //   $("#heart").click(function(){
+  //     if($("#heart").hasClass("liked")){
+  //       $("#heart").html('<i class="fa fa-heart-o" aria-hidden="true"></i>');
+  //       $("#heart").removeClass("liked");
+  //     }else{
+  //       $("#heart").html('<i class="fa fa-heart" aria-hidden="true"></i>');
+  //       $("#heart").addClass("liked");
+  //     }
+  //   });
+  // });
  
+  
