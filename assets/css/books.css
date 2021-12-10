@@ -23,15 +23,28 @@
 }
 
   .card{
-    padding: 10px;
-    margin: 5px;
-    background-color: #1a535c;
+    /* padding: 10px; */
+    margin: 0.5em;
+    background-color: #1a535c; 
     box-shadow: 5px 8px 8px #888888;
    
   }
+  
+  .scroll-text {
+    margin-top: 5%;
+    font-size: 0.5em;
+    font-style: italic;
+    color: white;
+}
+  .image-one{
+    max-height: 350px;
+    min-height: 350px;
+    margin-top: 6%;
+  }
 
   .card-body{
-    background-color:#bae9e5;
+    background-color:#1a535c; 
+    color: white;
 
   }
  
@@ -57,18 +70,17 @@
   }
 
   .reduceDescription {
-    width: 250px;
+    /* width: 250px; */
     max-height: 300px;
     /* white-space: nowrap;
     overflow: scroll; */
     overflow-x: scroll;
     text-overflow: ellipsis;
-    
-    padding: 20px;
-    font-size: 1.3rem;
-    margin: 0;
-    background: #bae9e5;
-    resize: horizontal;
+    /* padding: 20px; */
+    /* font-size: 1.3rem; */
+    margin-top: 10%;
+    /* background: #bae9e5; */
+    /* resize: horizontal; */
   }
 
   .like-btn {
@@ -101,10 +113,48 @@
   z-index: 3;
 }
 
-.nav-btn > a{
+/* .nav-btn > a{
 
    background-color: #1a535c;
     color: white;
+} */
+
+nav > a > .back-btn {
+  background-color: #1a535c;
+  color: white;
+  border-radius: 10%;
+  box-sizing: border-box;
+  width: fit-content;
+  padding: 0.5rem;
+  margin: 0.5rem 0 0 0.5rem;
+}
+
+nav > a > .back-btn:hover {
+  background-color: white;
+  color: #1a535c;
+}
+
+nav > .main-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #1a535c;
+  margin-bottom: 2%;
+}
+
+.results-title {
+  color:#1a535c;
+  font-size: 1.5em;
+  margin-bottom: 2%;
+}
+
+@media screen and (max-width: 610px) {
+  nav > a > .back-btn {
+      width: 96%;
+      margin: 0.5rem;
+      text-align: center;
+      border-radius: 4%;
+      font-size: 1.5rem;
+  }
 }
 
 /* 
