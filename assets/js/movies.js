@@ -70,13 +70,9 @@ var getMovieResultOne = function (movieIds) {
             firstCardTitle.setAttribute("class", "card-title");
             firstCardTitle.textContent = data.originalTitle;
             firstCardBody.appendChild(firstCardTitle);
-            var firstCardDesc = document.createElement('p');
-            firstCardDesc.setAttribute("class", "card-text desc");
-            firstCardDesc.textContent = data.overview;
-            firstCardBody.appendChild(firstCardDesc);
             var firstCardRating = document.createElement('p')
             firstCardRating.setAttribute("class", "card-text rating")
-            firstCardRating.textContent = "iMDB Rating: "
+            firstCardRating.textContent = "iMDB Rating:  "
             firstCardBody.appendChild(firstCardRating);
             var imdbRating = document.createElement('p')
             imdbRating.textContent = data.imdbRating
@@ -115,8 +111,14 @@ var getMovieResultOne = function (movieIds) {
             } else {
                 firstCardStreamingInfo.textContent = "Not on streaming services right now"
             }
-            // storeResultsHistory(data)
-            // renderResultsHistory(data)
+            var firstCardDesc = document.createElement('p');
+            firstCardDesc.setAttribute("class", "card-text desc reduce-description");
+            firstCardDesc.textContent = data.overview;
+            firstCardBody.appendChild(firstCardDesc);
+            var firstScrollText = document.createElement('p')
+            firstScrollText.setAttribute("class", "scroll-text");
+            firstScrollText.textContent = "Scroll to read"
+            firstCardBody.appendChild(firstScrollText)
         })
 }
 
@@ -148,13 +150,9 @@ var getMovieResultTwo = function (movieIds) {
             secondCardTitle.setAttribute("class", "card-title");
             secondCardTitle.textContent = data.originalTitle;
             secondCardBody.appendChild(secondCardTitle);
-            var secondCardDesc = document.createElement('p');
-            secondCardDesc.setAttribute("class", "card-text desc");
-            secondCardDesc.textContent = data.overview;
-            secondCardBody.appendChild(secondCardDesc);
             var secondCardRating = document.createElement('p')
             secondCardRating.setAttribute("class", "card-text rating")
-            secondCardRating.textContent = "iMDB Rating: "
+            secondCardRating.textContent = "iMDB Rating:  "
             secondCardBody.appendChild(secondCardRating);
             var imdbRating = document.createElement('p')
             imdbRating.textContent = data.imdbRating
@@ -193,8 +191,14 @@ var getMovieResultTwo = function (movieIds) {
             } else {
                 secondCardStreamingInfo.textContent = "Not on streaming services right now"
             }
-            // storeResultsHistory(data)
-            // renderResultsHistory(data)
+            var secondCardDesc = document.createElement('p');
+            secondCardDesc.setAttribute("class", "card-text desc reduce-description");
+            secondCardDesc.textContent = data.overview;
+            secondCardBody.appendChild(secondCardDesc);
+            var secondScrollText = document.createElement('p')
+            secondScrollText.setAttribute("class", "scroll-text");
+            secondScrollText.textContent = "Scroll to read"
+            secondCardBody.appendChild(secondScrollText)
         })
 }
 
@@ -226,13 +230,9 @@ var getMovieResultThree = function (movieIds) {
             thirdCardTitle.setAttribute("class", "card-title");
             thirdCardTitle.textContent = data.originalTitle;
             thirdCardBody.appendChild(thirdCardTitle);
-            var thirdCardDesc = document.createElement('p');
-            thirdCardDesc.setAttribute("class", "card-text desc");
-            thirdCardDesc.textContent = data.overview;
-            thirdCardBody.appendChild(thirdCardDesc);
             var thirdCardRating = document.createElement('p')
             thirdCardRating.setAttribute("class", "card-text rating")
-            thirdCardRating.textContent = "iMDB Rating: "
+            thirdCardRating.textContent = "iMDB Rating:  "
             thirdCardBody.appendChild(thirdCardRating);
             var imdbRating = document.createElement('p')
             imdbRating.textContent = data.imdbRating
@@ -271,8 +271,14 @@ var getMovieResultThree = function (movieIds) {
             } else {
                 thirdCardStreamingInfo.textContent = "Not on streaming services right now"
             }
-            // storeResultsHistory(data)
-            // renderResultsHistory(data)
+            var thirdCardDesc = document.createElement('p');
+            thirdCardDesc.setAttribute("class", "card-text desc reduce-description");
+            thirdCardDesc.textContent = data.overview;
+            thirdCardBody.appendChild(thirdCardDesc);
+            var thirdScrollText = document.createElement('p')
+            thirdScrollText.setAttribute("class", "scroll-text");
+            thirdScrollText.textContent = "Scroll to read"
+            thirdCardBody.appendChild(thirdScrollText)
         })
 }
 
@@ -304,13 +310,9 @@ var getMovieResultFour = function (movieIds) {
             forthCardTitle.setAttribute("class", "card-title");
             forthCardTitle.textContent = data.originalTitle;
             forthCardBody.appendChild(forthCardTitle);
-            var forthCardDesc = document.createElement('p');
-            forthCardDesc.setAttribute("class", "card-text desc");
-            forthCardDesc.textContent = data.overview;
-            forthCardBody.appendChild(forthCardDesc);
             var forthCardRating = document.createElement('p')
             forthCardRating.setAttribute("class", "card-text rating")
-            forthCardRating.textContent = "iMDB Rating: "
+            forthCardRating.textContent = "iMDB Rating:  "
             forthCardBody.appendChild(forthCardRating);
             var imdbRating = document.createElement('p')
             imdbRating.textContent = data.imdbRating
@@ -349,8 +351,14 @@ var getMovieResultFour = function (movieIds) {
             } else {
                 forthCardStreamingInfo.textContent = "Not on streaming services right now"
             }
-            // storeResultsHistory(data)
-            // renderResultsHistory(data)
+            var forthCardDesc = document.createElement('p');
+            forthCardDesc.setAttribute("class", "card-text desc reduce-description");
+            forthCardDesc.textContent = data.overview;
+            forthCardBody.appendChild(forthCardDesc);
+            var forthScrollText = document.createElement('p')
+            forthScrollText.setAttribute("class", "scroll-text");
+            forthScrollText.textContent = "Scroll to read"
+            forthCardBody.appendChild(forthScrollText)
         })
 }
 
@@ -382,13 +390,9 @@ var getMovieResultFive = function (movieIds) {
             fifthCardTitle.setAttribute("class", "card-title");
             fifthCardTitle.textContent = data.originalTitle;
             fifthCardBody.appendChild(fifthCardTitle);
-            var fifthCardDesc = document.createElement('p');
-            fifthCardDesc.setAttribute("class", "card-text desc");
-            fifthCardDesc.textContent = data.overview;
-            fifthCardBody.appendChild(fifthCardDesc);
             var fifthCardRating = document.createElement('p')
             fifthCardRating.setAttribute("class", "card-text rating")
-            fifthCardRating.textContent = "iMDB Rating: "
+            fifthCardRating.textContent = "iMDB Rating:  "
             fifthCardBody.appendChild(fifthCardRating);
             var imdbRating = document.createElement('p')
             imdbRating.textContent = data.imdbRating
@@ -427,7 +431,13 @@ var getMovieResultFive = function (movieIds) {
             } else {
                 fifthCardStreamingInfo.textContent = "Not on streaming services right now"
             }
-            // storeResultsHistory(data)
-            // renderResultsHistory(data)
+            var fifthCardDesc = document.createElement('p');
+            fifthCardDesc.setAttribute("class", "card-text desc reduce-description");
+            fifthCardDesc.textContent = data.overview;
+            fifthCardBody.appendChild(fifthCardDesc);
+            var fifthScrollText = document.createElement('p')
+            fifthScrollText.setAttribute("class", "scroll-text");
+            fifthScrollText.textContent = "Scroll to read"
+            fifthCardBody.appendChild(fifthScrollText)
         })
 }
