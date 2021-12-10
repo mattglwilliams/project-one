@@ -72,7 +72,7 @@
   }
 
   .like-btn {
-    position: relative;
+    /* position: relative; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -80,16 +80,17 @@
     height: 80px;
     cursor: pointer;
     transition: all 0.5s;
-    opacity: 0;
+    opacity: 1;
     z-index: 2;
   }
 
   .fa-heart{
-    position: absolute;
+    /* position: absolute; */
     font-size: var(--like-font-size);
     -webkit-text-stroke: 3px #e5e5e5;
     color: whitesmoke;
     transition: all ease-in-out;
+    z-index: 2;
 }
   
 
@@ -97,6 +98,7 @@
   color: red;
   -webkit-text-stroke: 1px red;
   animation: .5s linear burst; 
+  z-index: 3;
 }
 
 /* 
