@@ -42,7 +42,7 @@
   }
  .btn:hover{
     background-color: #bae9e5;
-    border: solid 1px #1a535c;
+   
  }
 
   body{
@@ -94,7 +94,7 @@
 }
   
 
-.like-btn:checked + .fa-heart{
+.like-btn:active + .fa-heart{
   color: red;
   -webkit-text-stroke: 1px red;
   animation: .5s linear burst; 

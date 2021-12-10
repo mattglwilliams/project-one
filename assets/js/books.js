@@ -104,9 +104,7 @@ for (var i = 0; i < allBookGenreButtons.length; i++) {
         //   } else {
         //     checkboxEl.checked = false;
         //   }
-        // });
-
-      
+        // });    
 
         })
         var checkboxEl = document.querySelector(".like-btn");
@@ -116,7 +114,7 @@ for (var i = 0; i < allBookGenreButtons.length; i++) {
         //var checkboxEl = document.querySelector("input[name=checkbox]");
         displaySavedEl.append(displayCard);
 
-
       });
+
   });
 }
