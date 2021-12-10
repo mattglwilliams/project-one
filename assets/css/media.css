@@ -32,7 +32,7 @@ body {
 
 .card {
     margin: 0.5em;
-    border: rgb(44, 42, 42) solid 2px;
+    /* border: rgb(44, 42, 42) solid 2px; */
     color: rgb(44, 42, 42);
     box-shadow: 5px 8px 8px #888888;
 }
@@ -99,4 +99,49 @@ body {
     color: white;
     padding: 2%;
     border-radius: 0.5em;
+}
+
+.reduce-description {
+    max-height: 150px;
+    overflow-x: scroll;
+    text-overflow: ellipsis;
+    margin-top: 10%;
+}
+
+.scroll-text {
+    margin-top: 5%;
+    font-size: 0.5em;
+    font-style: italic;
+}
+
+nav > a > .back-btn {
+    background-color: tomato;
+    color: white;
+    border-radius: 10%;
+    box-sizing: border-box;
+    width: fit-content;
+    padding: 0.5rem;
+    margin: 0.5rem 0 0 0.5rem;
+}
+
+nav > a > .back-btn:hover {
+    background-color: white;
+    color: tomato;
+}
+
+nav > .main-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: tomato;
+    margin-bottom: 2%;
+}
+
+@media screen and (max-width: 610px) {
+    nav > a > .back-btn {
+        width: 96%;
+        margin: 0.5rem;
+        text-align: center;
+        border-radius: 4%;
+        font-size: 1.5rem;
+    }
 }
