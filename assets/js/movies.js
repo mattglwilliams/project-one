@@ -18,6 +18,12 @@ for (var i = 0; i < allGenreButtons.length; i++) {
     allGenreButtons[i].addEventListener('click', async function () {
         var ids = []
         var btnValue = this.value
+        var btnName = this.name
+        resultsTitleContainer.innerHTML = ""
+        var resultsTitle = document.createElement('h2')
+        resultsTitle.setAttribute('class', 'results-title')
+        resultsTitle.textContent = "Showing results for " + btnName;
+        resultsTitleContainer.appendChild(resultsTitle)
         var genreApiURL = "https://api.themoviedb.org/3/discover/movie?api_key=2fad5e038a5d373957de8c81a2825905&language=en-UK&include_adult=false&page=" + randomPage + "&with_original_language=en&with_genres=" + btnValue;
 
         var data = await fetch(genreApiURL)
@@ -47,7 +53,7 @@ var getMovieResultOne = function (movieIds) {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "streaming-availability.p.rapidapi.com",
-            "x-rapidapi-key": "34080ff2a3msh1e7297fd9f6e022p175751jsna9da828fe46e"
+            "x-rapidapi-key": "b47074264amshfad7f61fb6d89e0p10c33bjsn75adba8fcd32"
         }
     })
         .then(function (response) {
@@ -127,7 +133,7 @@ var getMovieResultTwo = function (movieIds) {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "streaming-availability.p.rapidapi.com",
-            "x-rapidapi-key": "34080ff2a3msh1e7297fd9f6e022p175751jsna9da828fe46e"
+            "x-rapidapi-key": "b47074264amshfad7f61fb6d89e0p10c33bjsn75adba8fcd32"
         }
     })
         .then(function (response) {
@@ -207,7 +213,7 @@ var getMovieResultThree = function (movieIds) {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "streaming-availability.p.rapidapi.com",
-            "x-rapidapi-key": "34080ff2a3msh1e7297fd9f6e022p175751jsna9da828fe46e"
+            "x-rapidapi-key": "b47074264amshfad7f61fb6d89e0p10c33bjsn75adba8fcd32"
         }
     })
         .then(function (response) {
@@ -287,7 +293,7 @@ var getMovieResultFour = function (movieIds) {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "streaming-availability.p.rapidapi.com",
-            "x-rapidapi-key": "34080ff2a3msh1e7297fd9f6e022p175751jsna9da828fe46e"
+            "x-rapidapi-key": "b47074264amshfad7f61fb6d89e0p10c33bjsn75adba8fcd32"
         }
     })
         .then(function (response) {
@@ -367,7 +373,7 @@ var getMovieResultFive = function (movieIds) {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "streaming-availability.p.rapidapi.com",
-            "x-rapidapi-key": "34080ff2a3msh1e7297fd9f6e022p175751jsna9da828fe46e"
+            "x-rapidapi-key": "b47074264amshfad7f61fb6d89e0p10c33bjsn75adba8fcd32"
         }
     })
         .then(function (response) {
