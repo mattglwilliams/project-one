@@ -6,7 +6,6 @@ var resultsHistory = document.querySelector(".results-history")
 var movies = [];
 
 var allGenreButtons = document.querySelectorAll('button[class^=btn]');
-console.log("Found", allGenreButtons.length, "button which class starts with btn.");
 
 var randomPage = Math.floor(Math.random() * 10)
 
@@ -32,14 +31,12 @@ for (var i = 0; i < allGenreButtons.length; i++) {
                     return response.json()
                 }
             })
-        console.log(data.results);
         for (var i = 0; i < data.results.length; i++) {
             moviesContainer.textContent = ""
             var movieId = data.results[i].id
             ids.push(movieId)
         }
         genreShuffledArr(ids);
-        console.log(ids);
         getMovieResultOne(ids)
         getMovieResultTwo(ids)
         getMovieResultThree(ids)
@@ -60,7 +57,6 @@ var getMovieResultOne = function (movieIds) {
             return response.json();
         })
         .then(function (data) {
-            console.log(data);
             var firstCard = document.createElement('div');
             firstCard.setAttribute("style", "width: 18rem;");
             firstCard.setAttribute("class", "card");
@@ -140,7 +136,6 @@ var getMovieResultTwo = function (movieIds) {
             return response.json();
         })
         .then(function (data) {
-            console.log(data);
             var secondCard = document.createElement('div');
             secondCard.setAttribute("style", "width: 18rem;");
             secondCard.setAttribute("class", "card");
@@ -220,7 +215,6 @@ var getMovieResultThree = function (movieIds) {
             return response.json();
         })
         .then(function (data) {
-            console.log(data);
             var thirdCard = document.createElement('div');
             thirdCard.setAttribute("style", "width: 18rem;");
             thirdCard.setAttribute("class", "card");
@@ -300,7 +294,6 @@ var getMovieResultFour = function (movieIds) {
             return response.json();
         })
         .then(function (data) {
-            console.log(data);
             var forthCard = document.createElement('div');
             forthCard.setAttribute("style", "width: 18rem;");
             forthCard.setAttribute("class", "card");
@@ -380,7 +373,6 @@ var getMovieResultFive = function (movieIds) {
             return response.json();
         })
         .then(function (data) {
-            console.log(data);
             var fifthCard = document.createElement('div');
             fifthCard.setAttribute("style", "width: 18rem;");
             fifthCard.setAttribute("class", "card");

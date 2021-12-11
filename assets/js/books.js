@@ -1,4 +1,7 @@
+//variables for elements to render
 var displayBookEl = document.querySelector(".displayBook");
+
+// variables for buttons
 var actionBookBtn = document.querySelector(".action");
 var adventureBookBtn = document.querySelector(".adventure");
 var comedyBookBtn = document.querySelector(".comedy");
@@ -48,18 +51,26 @@ for (var i = 0; i < allBookGenreButtons.length; i++) {
           var bookDescription = document.createElement("p");
           var titleLink = document.createElement("div");
           var titleLinkEl = document.createElement("div");
-          var firstScrollText = document.createElement("p");
+          var likeEl = document.createElement("input");
+          var likeEl = document.createElement("button");
+          var heartEl = document.createElement("i");
+
+          //likeEl.setAttribute("type", "checkbox");
+          likeEl.setAttribute("class", "like-btn");
+
+          heartEl.setAttribute("class", "fa fa-heart");
 
           displayCard.setAttribute("class", "card");
-          displayCard.setAttribute("style", "width: 18rem;");
+          displayCard.setAttribute("style", "width: 22rem;");
           bookImage.setAttribute("class", "image-one card-img-top");
           cardBody.setAttribute("class", "card-body");
           bookTitle.setAttribute("class", "card-title");
-          firstScrollText.setAttribute("class", "scroll-text");
+
           bookDescription.setAttribute(
             "class",
             "desc-one card-text reduceDescription"
           );
+
           bookTitle.setAttribute("href", data.items[i].volumeInfo.previewLink);
           bookTitle.setAttribute("target", "_blank");
           bookImage.setAttribute(
@@ -69,19 +80,40 @@ for (var i = 0; i < allBookGenreButtons.length; i++) {
 
           bookTitle.textContent = data.items[i].volumeInfo.title;
           bookDescription.textContent = data.items[i].volumeInfo.description;
-          firstScrollText.textContent = "Scroll to read";
 
           titleLink.append(titleLinkEl);
+
+          likeEl.append(heartEl);
+          cardBody.append(likeEl);
           cardBody.append(bookTitle);
           cardBody.append(titleLink);
+
           cardBody.append(bookDescription);
-          cardBody.appendChild(firstScrollText);
           displayCard.append(bookImage);
           displayCard.append(cardBody);
+
           displayBookEl.append(displayCard);
 
           randomPage = Math.floor(Math.random() * 29);
         }
+   
+        // checkboxEl.addEventListener("change", function () {
+        //   if (this.checked) {
+        //     displaySavedEl.append(displayCard);
+        //   } else {
+        //     checkboxEl.checked = false;
+        //   }
+        // });    
+
+        })
+        var checkboxEl = document.querySelector(".like-btn");
+
+        checkboxEl.addEventListener("click",function(){
+        var displaySavedEl = document.querySelector(".displaySaved");
+        //var checkboxEl = document.querySelector("input[name=checkbox]");
+        displaySavedEl.append(displayCard);
+
       });
+
   });
 }
