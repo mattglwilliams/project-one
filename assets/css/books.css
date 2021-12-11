@@ -1,4 +1,4 @@
-/* Styling for the body and header */
+
 body {
   background-color: #f7fff7;
 }
@@ -40,7 +40,7 @@ nav > .main-title {
   }
 }
 
-/* Styling for the search buttons */
+
 .btn {
   background-color: #1a535c;
   margin: 4px;
@@ -50,7 +50,7 @@ nav > .main-title {
   background-color: #bae9e5;
 }
 
-/* Styling for th results section */
+
 
 .card {
   margin: 0.5em;
@@ -93,34 +93,7 @@ a {
   margin-bottom: 2%;
 }
 
-/* Styling for like feature - NOT YET IMPLEMENTED */
 
-/* .like-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 80px;
-  height: 80px;
-  cursor: pointer;
-  transition: all 0.5s;
-  opacity: 1;
-  z-index: 2;
-}
-
-.fa-heart {
-  font-size: var(--like-font-size);
-  -webkit-text-stroke: 3px #e5e5e5;
-  color: whitesmoke;
-  transition: all ease-in-out;
-  z-index: 2;
-}
-
-.like-btn:active + .fa-heart {
-  color: red;
-  -webkit-text-stroke: 1px red;
-  animation: 0.5s linear burst;
-  z-index: 3;
-} */
 
 
 
