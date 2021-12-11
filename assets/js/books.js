@@ -1,7 +1,4 @@
-//variables for elements to render
 var displayBookEl = document.querySelector(".displayBook");
-
-// variables for buttons
 var actionBookBtn = document.querySelector(".action");
 var adventureBookBtn = document.querySelector(".adventure");
 var comedyBookBtn = document.querySelector(".comedy");
@@ -63,7 +60,6 @@ for (var i = 0; i < allBookGenreButtons.length; i++) {
             "class",
             "desc-one card-text reduceDescription"
           );
-
           bookTitle.setAttribute("href", data.items[i].volumeInfo.previewLink);
           bookTitle.setAttribute("target", "_blank");
           bookImage.setAttribute(
@@ -76,37 +72,16 @@ for (var i = 0; i < allBookGenreButtons.length; i++) {
           firstScrollText.textContent = "Scroll to read";
 
           titleLink.append(titleLinkEl);
-
-          // likeEl.append(heartEl);
-          // cardBody.append(likeEl);
           cardBody.append(bookTitle);
           cardBody.append(titleLink);
-
           cardBody.append(bookDescription);
           cardBody.appendChild(firstScrollText);
           displayCard.append(bookImage);
           displayCard.append(cardBody);
-
           displayBookEl.append(displayCard);
 
           randomPage = Math.floor(Math.random() * 29);
         }
       });
-
-    //for future development of liked section
-
-    // var likeEl = document.createElement("button");
-    // var heartEl = document.createElement("i");
-    // likeEl.setAttribute("class", "like-btn");
-    // heartEl.setAttribute("class", "fa fa-heart");
-    // likeEl.append(heartEl);
-    // cardBody.append(likeEl);
-    // var checkboxEl = document.querySelector(".like-btn");
-
-    // checkboxEl.addEventListener("click",function(){
-    // var displaySavedEl = document.querySelector(".displaySaved");
-    // displaySavedEl.append(displayCard);
-
-    // });
   });
 }
