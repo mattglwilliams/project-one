@@ -41,7 +41,6 @@ for (var i = 0; i < allBookGenreButtons.length; i++) {
         return response.json();
       })
       .then(function (data) {
-        console.log(data)
         displayBookEl.textContent = "";
 
         for (var i = 0; i <= 4; i++) {
@@ -52,14 +51,7 @@ for (var i = 0; i < allBookGenreButtons.length; i++) {
           var bookDescription = document.createElement("p");
           var titleLink = document.createElement("div");
           var titleLinkEl = document.createElement("div");
-          //var likeEl = document.createElement("input");
-          var likeEl = document.createElement("button");
-          var heartEl = document.createElement("i");
-          var firstScrollText = document.createElement('p')
-          //likeEl.setAttribute("type", "checkbox");
-          likeEl.setAttribute("class", "like-btn");
-
-          heartEl.setAttribute("class", "fa fa-heart");
+          var firstScrollText = document.createElement("p");
 
           displayCard.setAttribute("class", "card");
           displayCard.setAttribute("style", "width: 18rem;");
@@ -81,21 +73,17 @@ for (var i = 0; i < allBookGenreButtons.length; i++) {
 
           bookTitle.textContent = data.items[i].volumeInfo.title;
           bookDescription.textContent = data.items[i].volumeInfo.description;
-          firstScrollText.textContent = "Scroll to read"
-          
-            
-            
-          
+          firstScrollText.textContent = "Scroll to read";
 
           titleLink.append(titleLinkEl);
 
-          likeEl.append(heartEl);
-          cardBody.append(likeEl);
+          // likeEl.append(heartEl);
+          // cardBody.append(likeEl);
           cardBody.append(bookTitle);
           cardBody.append(titleLink);
 
           cardBody.append(bookDescription);
-          cardBody.appendChild(firstScrollText)
+          cardBody.appendChild(firstScrollText);
           displayCard.append(bookImage);
           displayCard.append(cardBody);
 
@@ -103,24 +91,22 @@ for (var i = 0; i < allBookGenreButtons.length; i++) {
 
           randomPage = Math.floor(Math.random() * 29);
         }
-   
-        // checkboxEl.addEventListener("change", function () {
-        //   if (this.checked) {
-        //     displaySavedEl.append(displayCard);
-        //   } else {
-        //     checkboxEl.checked = false;
-        //   }
-        // });    
-
-        })
-        var checkboxEl = document.querySelector(".like-btn");
-
-        checkboxEl.addEventListener("click",function(){
-        var displaySavedEl = document.querySelector(".displaySaved");
-        //var checkboxEl = document.querySelector("input[name=checkbox]");
-        displaySavedEl.append(displayCard);
-
       });
 
+    //for future development of liked section
+
+    // var likeEl = document.createElement("button");
+    // var heartEl = document.createElement("i");
+    // likeEl.setAttribute("class", "like-btn");
+    // heartEl.setAttribute("class", "fa fa-heart");
+    // likeEl.append(heartEl);
+    // cardBody.append(likeEl);
+    // var checkboxEl = document.querySelector(".like-btn");
+
+    // checkboxEl.addEventListener("click",function(){
+    // var displaySavedEl = document.querySelector(".displaySaved");
+    // displaySavedEl.append(displayCard);
+
+    // });
   });
 }
