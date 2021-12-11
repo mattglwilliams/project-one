@@ -53,7 +53,7 @@ var getMovieResultOne = function (movieIds) {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "streaming-availability.p.rapidapi.com",
-            "x-rapidapi-key": "b47074264amshfad7f61fb6d89e0p10c33bjsn75adba8fcd32"
+            "x-rapidapi-key": "fd9a215c8fmsh1b12b778dc43cfdp16b61cjsn3480cfe25268"
         }
     })
         .then(function (response) {
@@ -133,7 +133,7 @@ var getMovieResultTwo = function (movieIds) {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "streaming-availability.p.rapidapi.com",
-            "x-rapidapi-key": "b47074264amshfad7f61fb6d89e0p10c33bjsn75adba8fcd32"
+            "x-rapidapi-key": "fd9a215c8fmsh1b12b778dc43cfdp16b61cjsn3480cfe25268"
         }
     })
         .then(function (response) {
@@ -213,7 +213,7 @@ var getMovieResultThree = function (movieIds) {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "streaming-availability.p.rapidapi.com",
-            "x-rapidapi-key": "b47074264amshfad7f61fb6d89e0p10c33bjsn75adba8fcd32"
+            "x-rapidapi-key": "fd9a215c8fmsh1b12b778dc43cfdp16b61cjsn3480cfe25268"
         }
     })
         .then(function (response) {
@@ -293,7 +293,7 @@ var getMovieResultFour = function (movieIds) {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "streaming-availability.p.rapidapi.com",
-            "x-rapidapi-key": "b47074264amshfad7f61fb6d89e0p10c33bjsn75adba8fcd32"
+            "x-rapidapi-key": "fd9a215c8fmsh1b12b778dc43cfdp16b61cjsn3480cfe25268"
         }
     })
         .then(function (response) {
@@ -373,7 +373,7 @@ var getMovieResultFive = function (movieIds) {
         "method": "GET",
         "headers": {
             "x-rapidapi-host": "streaming-availability.p.rapidapi.com",
-            "x-rapidapi-key": "b47074264amshfad7f61fb6d89e0p10c33bjsn75adba8fcd32"
+            "x-rapidapi-key": "fd9a215c8fmsh1b12b778dc43cfdp16b61cjsn3480cfe25268"
         }
     })
         .then(function (response) {
