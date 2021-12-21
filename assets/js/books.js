@@ -41,7 +41,6 @@ for (var i = 0; i < allBookGenreButtons.length; i++) {
         return response.json();
       })
       .then(function (data) {
-        console.log(data)
         displayBookEl.textContent = "";
 
         for (var i = 0; i <= 4; i++) {
@@ -52,21 +51,21 @@ for (var i = 0; i < allBookGenreButtons.length; i++) {
           var bookDescription = document.createElement("p");
           var titleLink = document.createElement("div");
           var titleLinkEl = document.createElement("div");
-          //var likeEl = document.createElement("input");
+          var likeEl = document.createElement("input");
           var likeEl = document.createElement("button");
           var heartEl = document.createElement("i");
-          var firstScrollText = document.createElement('p')
+
           //likeEl.setAttribute("type", "checkbox");
           likeEl.setAttribute("class", "like-btn");
 
           heartEl.setAttribute("class", "fa fa-heart");
 
           displayCard.setAttribute("class", "card");
-          displayCard.setAttribute("style", "width: 18rem;");
+          displayCard.setAttribute("style", "width: 22rem;");
           bookImage.setAttribute("class", "image-one card-img-top");
           cardBody.setAttribute("class", "card-body");
           bookTitle.setAttribute("class", "card-title");
-          firstScrollText.setAttribute("class", "scroll-text");
+
           bookDescription.setAttribute(
             "class",
             "desc-one card-text reduceDescription"
@@ -81,11 +80,6 @@ for (var i = 0; i < allBookGenreButtons.length; i++) {
 
           bookTitle.textContent = data.items[i].volumeInfo.title;
           bookDescription.textContent = data.items[i].volumeInfo.description;
-          firstScrollText.textContent = "Scroll to read"
-          
-            
-            
-          
 
           titleLink.append(titleLinkEl);
 
@@ -95,7 +89,6 @@ for (var i = 0; i < allBookGenreButtons.length; i++) {
           cardBody.append(titleLink);
 
           cardBody.append(bookDescription);
-          cardBody.appendChild(firstScrollText)
           displayCard.append(bookImage);
           displayCard.append(cardBody);
 

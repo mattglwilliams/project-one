@@ -17,6 +17,19 @@ As a user, I want a selection of books returned, so that I can choose something 
 Built With:
 Javascript, CSS, HTML, Tailwind, Google Books API, tMBD APi, Streaming Availability API
 
+Challenges
+API data not matching original ideas > leading to change in scope.
+Refactoring code for movie results.
+Naming conventions.
+Merge/Git issues.
+Tailwind components / cdn.
+
+Successes
+Communication / work balance
+Code refactoring (from 800 lines to 50)
+UI / Functionality
+
+
 User Instructions: 
 From homepage select either books or movies, then select a Genre. After selecting a genre view the information provided on the results cards. Use the back button to navigate to homepage to repeat on the other section.
 
